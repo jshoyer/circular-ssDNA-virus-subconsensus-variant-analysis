@@ -12,3 +12,59 @@ If someone can reuse the code
 (after adjusting paths)
 that is great,
 but that is not the main goal here.
+
+The Slurm job scripts
+are numbered in the order
+in which they are to be run,
+i.e. submitted with `sbatch`
+(010_, 020_, 030_, ...).
+The workflow is similar
+to the one described
+on the [[http://www.htslib.org/workflow/#mapping_to_variant][Samtools workflow page]],
+but combines steps with pipes
+to reduce repeated disk read/write steps.
+Several parts of each script
+that need to be edited
+are indicated
+(UPDATE_HERE).
+
+Indexing of reference sequences
+needs to be done just once (015).
+The other steps run in parallel,
+using a Slurm job array,
+with one job per library.
+We trim reads with Cutadapt (010),
+align them with BWA MEM (020),
+and do the processing needed
+for calling variants with VarScan (030).
+These steps are split into multiple job scripts
+mainly because the BWA MEM step
+benefits more from allocating multiple CPU cores
+than the others do.
+Variables are defined
+for the location of the input FastQ files
+(FASTQDIR)
+and the trimmed read FastQ files
+generated from them
+(CUTADAPTDIR).
+`ls` is used (with `sed`)
+to get prefixes from the names of those input files
+that are then then used for subsequent output files.
+Output from the 020 and 030 scripts
+is written to a third directory
+(OUTDIR).
+
+Job scripts were run on a cluster
+on which Lmod is used to manage software.
+If you are not using Lmod
+you'll need the relevant binaries (cutadapt, bwa, ...)
+to be in your $PATH.
+
+As noted in each job script,
+a slurm-logs/ subdirectory must exist
+in the directory
+in which the scripts are to be run.
+I use this method
+to avoid cluttering the main output directory
+with the STDERR and STDOUT files
+that Slurm writes to disk.
