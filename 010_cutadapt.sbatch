@@ -38,7 +38,8 @@ hostname
 echo This is task $SLURM_ARRAY_TASK_ID
 
 module purge
-module list  # (none)
+module load FastQC
+module list
 
 ######################################################################
 
@@ -64,6 +65,12 @@ srun cutadapt\
      -p ${OUTPREFIX[$libindex-1]}_R2_trimmed.fastq.gz\
      ${FASTQDIR}/${INPUTFASTQR1[libindex-1]}\
      ${FASTQDIR}/${OUTPREFIX[libindex-1]}_R2_001.fastq.gz
+     > ${OUTPREFIX[$libindex-1]}_cutadapt-report.txt
+
+#####################################################
+
+fastqc ${OUTPREFIX[$libindex-1]}_R1_trimmed.fastq.gz\
+       ${OUTPREFIX[$libindex-1]}_R2_trimmed.fastq.gz
 
 ######################################################################
 
