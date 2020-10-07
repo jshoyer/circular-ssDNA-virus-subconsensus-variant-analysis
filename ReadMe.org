@@ -6,10 +6,9 @@ of infectious clone plasmids
 original described by Fondong et al. (2000, 2011).
 It is released for transparency,
 as an aid in understanding the work.
-The code for specific papers
-will be archived
+I archived the code
 at Zenodo.org
-via forked GitHub repositories.
+via a forked GitHub repository.
 If someone can reuse the code
 (after adjusting paths)
 that is great,
