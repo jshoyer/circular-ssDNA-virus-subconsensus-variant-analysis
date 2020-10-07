@@ -1,7 +1,9 @@
 
 This code supports
-scientific manuscripts
-that are in preparation.
+a resource anouncement paper
+describing deep sequencing
+of infectious clone plasmids
+original described by Fondong et al. (2000, 2011).
 It is released for transparency,
 as an aid in understanding the work.
 The code for specific papers
@@ -12,6 +14,8 @@ If someone can reuse the code
 (after adjusting paths)
 that is great,
 but that is not the main goal here.
+For the data in the Sequence Read Archive,
+see https://trace.ncbi.nlm.nih.gov/Traces/study/?acc=SRP274352
 
 The Slurm job scripts
 are numbered in the order
@@ -41,8 +45,14 @@ These steps are split into multiple job scripts
 mainly because the BWA MEM step
 benefits more from allocating multiple CPU cores
 than the others do.
-Variables are defined
-for the location of the input FastQ files
+
+FastQ files can be downloaded from the SRA
+with the 005_download-data-from-SRA.sh script
+which was made with the help
+of the online [[https://sra-explorer.info][SRA Explorer]] tool
+by Phil Ewels.
+Variables in the subsequent job scripts are defined
+for the location of those input FastQ files
 (FASTQDIR)
 and the trimmed read FastQ files
 generated from them

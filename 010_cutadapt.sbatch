@@ -48,8 +48,8 @@ FASTQDIR=UPDATE_HERE
 
 cd $FASTQDIR
 pwd
-INPUTFASTQR1=( $(ls *_R1_001.fastq.gz) )
-OUTPREFIX=( $(ls *_R1_001.fastq.gz | sed 's/_R1_001.fastq.gz//') )
+INPUTFASTQR1=( $(ls *_R1.fastq.gz) )
+OUTPREFIX=( $(ls *_R1.fastq.gz | sed 's/_R1.fastq.gz//') )
 
 cd $CUTADAPTDIR
 pwd
