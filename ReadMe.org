@@ -27,6 +27,12 @@ Several parts of each script
 that need to be edited
 are indicated
 (UPDATE_HERE).
+Other parameters
+(such as 'partition=main')
+might need to be adjusted
+on other clusters
+or to run jobs that are similar
+but more resource-intensive.
 
 Indexing of reference sequences
 needs to be done just once (015).

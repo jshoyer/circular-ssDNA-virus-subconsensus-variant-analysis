@@ -8,7 +8,7 @@
 #          (define FASTAREF below).
 # Outputs: sorted and indexed BAM files, plus tables of read counts
 
-#SBATCH --partition=UPDATE_HERE
+#SBATCH --partition=main
 
 #SBATCH --array=UPDATE_HERE
 

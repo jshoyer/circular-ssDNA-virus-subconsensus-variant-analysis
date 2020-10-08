@@ -11,7 +11,7 @@
 
 ######################################################################
 
-#SBATCH --partition=UPDATE_HERE
+#SBATCH --partition=main
 
 #SBATCH --array=UPDATE_HERE
 

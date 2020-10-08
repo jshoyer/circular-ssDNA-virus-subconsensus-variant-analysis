@@ -8,7 +8,7 @@
 # Dependencies:
 #     Cutadapt 1.16 or similar
 
-#SBATCH --partition=UPDATE_HERE
+#SBATCH --partition=main
 #SBATCH --requeue
 
 #SBATCH --array=UPDATE_HERE

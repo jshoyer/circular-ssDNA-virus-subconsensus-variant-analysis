@@ -5,7 +5,7 @@
 ######################################################################
 
 # Cf. https://rutgers-oarc.github.io/amarel/#serialjobs
-#SBATCH --partition=UPDATE_HERE
+#SBATCH --partition=main
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=2000MB
 #SBATCH --time=00:40:00
@@ -39,10 +39,10 @@ hostname
 #cd $OUTDIR
 #pwd
 
-newfasta=UPDATE_HERE.fasta
+FASTAREF=UPDATE_HERE.fasta
 
-srun bwa index      $newfasta
-srun samtools faidx $newfasta
+srun bwa index      $FASTAREF
+srun samtools faidx $FASTAREF
 
 ######################################################################
 module list
