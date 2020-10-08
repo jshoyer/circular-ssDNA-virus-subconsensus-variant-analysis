@@ -3,7 +3,7 @@ This code supports
 a resource anouncement paper
 describing deep sequencing
 of infectious clone plasmids
-original described by Fondong et al. (2000, 2011).
+originally described by Fondong et al. (2000, 2011).
 It is released for transparency,
 as an aid in understanding the work.
 I archived the code
@@ -15,6 +15,19 @@ that is great,
 but that is not the main goal here.
 For the data in the Sequence Read Archive,
 see https://trace.ncbi.nlm.nih.gov/Traces/study/?acc=SRP274352
+
+Full plasmid sequences
+are GenBank accessions MT856192 to 5.
+The four sequences are included here as FastA files
+for convenience and consistency with the job scripts.
+The sequences are “rotated” 3-nt
+relative to GenBank.
+When I deduced them I set the coordinate system
+relative to the ampicillin resistance CDS,
+not realizing that I had missed the stop codon,
+which later provided inconvenient
+when providing annotations to GenBank.
+
 
 The Slurm job scripts
 are numbered in the order
