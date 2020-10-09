@@ -1,59 +1,69 @@
 #!/bin/bash
 
-#SBATCH --job-name=UPDATE_HERE
+#SBATCH --job-name=bwa_UPDATE_HERE
 
-# Inputs:  sorted and indexed BAM files, from 020_bwa-align.sbatch
-#          (Names specified based on contents of CUTADAPTDIR -- define below),
-#          a BED file with "chromosome" lengths.  (Define bedfile below
+# Inputs:  FastQ.gz files from 010_cutadapt.sbatch
+#          (define CUTADAPTDIR below),
 #          and an indexed reference sequence from 015_index-reference-sequences.sbatch
-#          (define FASTAREF below).
-# Outputs: VCF files (and intermediate files)
+#          (define FASTAREF below;
+#           can generate directy by uncommenting the relevant lines.)
+# Outputs: sorted and indexed BAM files, plus tables of read counts
+#          VCF files (and intermediate files)
 
 ######################################################################
 
-#SBATCH --partition=UPDATE_HERE
+#SBATCH --partition=main
 
 #SBATCH --array=UPDATE_HERE
 
-#SBATCH --cpus-per-task=2
-#SBATCH --mem=30000MB
+#SBATCH --cpus-per-task=5
+#SBATCH --mem=50000MB
 #SBATCH --time=2:00:00
 
 #SBATCH --requeue
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
+
+# Directory for log files must exist for this job script to work
+#                    V
 #SBATCH --output=slurm-logs/job%j.node%n.%N.index%a.out
 #SBATCH --error=slurm-logs/job%j.node%n.%N.index%a.err
-#SBATCH --export=ALL
 #SBATCH --mail-type=ALL
-
+################################
 #SBATCH --mail-user=UPDATE_HERE
-
 ######################################################################
 
+FASTAREF=UPDATE_HERE
+CUTADAPTDIR="."
+OUTDIR="."
+
+######################################################################
+date +"%Y-%m-%d %H:%M"
 module purge
 # Dependencies:
-module load samtools #/1.3.1
-module load java     #/9.0.4
-#     VarScan v2.4.3 (below)
-
-################################################################################
-OUTDIR=UPDATE_HERE
+module load bwa samtools java
+#     VarScan v2.4.3 (or similar)
+module list
+hostname
 
 date +"%Y-%m-%d %H:%M"
 cd $OUTDIR
 echo This is task $SLURM_ARRAY_TASK_ID
 pwd
 libindex=$SLURM_ARRAY_TASK_ID
+######################################################################
 
-module list
-hostname
+##  Alternative method:
+##  uncomment to index reference once here.
+##  $FASTAREF defined above
 
-BEDFILE=UPDATE_HERE
-# Used for getting subsets of reads -- below.
-
-CUTADAPTDIR=UPDATE_HERE
-FASTAREF=UPDATE_HERE
+#cp  $FASTAREF
+#COLI_CHR=CP001637.1.fasta
+#sha1sum $COLI_CHR
+# fa97c15d4387f6b06877ffe798b669ac5aec0f3c
+#cat $COLI_CHR >> $FASTAREF
+#srun bwa index $FASTAREF
+#srun samtools faidx $FASTAREF
 
 cd $CUTADAPTDIR
 pwd
@@ -66,45 +76,44 @@ echo $library
 cd $OUTDIR
 pwd
 
-# http://www.htslib.org/workflow/#mapping_to_variant
+srun bwa mem -t 4 \
+     $FASTAREF \
+     ${CUTADAPTDIR}/${library}_R1_trimmed.fastq.gz \
+     ${CUTADAPTDIR}/${library}_R2_trimmed.fastq.gz |
+    samtools view -b - |
+    samtools sort -@2 -o ${library}.bam
+srun samtools index   ${library}.bam
+
+srun samtools idxstats ${library}.bam \
+    > ${library}_idxstats.tsv
+
 ####################################################
 
-samtools view -b -o ${library}_virus.bam \
-	 -L $BEDFILE \
-	 ${library}_bwa_sorted.bam
+srun java -jar igvtools.jar \
+     count -w 1 --bases \
+     ${library}.bam \
+     ${library}.wig ${OUTDIR}/${FASTAREF}
 
-srun java -jar picard.jar MarkDuplicates \
-    I=${library}_virus.bam \
-    O=${library}_virus_marked_duplicates.bam \
-    REMOVE_SEQUENCING_DUPLICATES=true \
-    REMOVE_DUPLICATES=false \
-    VALIDATION_STRINGENCY=LENIENT \
-    M=${library}_virus_marked_dup_metrics.txt
-## I do not see any reason to keep 'optical' sequencing_duplicates
-
-srun samtools index ${library}_virus_marked_duplicates.bam
-
-########################################
-
-srun samtools mpileup -s \
-     -f $FASTAREF \
-     ${library}_virus_marked_duplicates.bam \
-     > ${library}_virus.mpileup
+srun samtools mpileup -s -d 100000000000 \
+     -f ${FASTAREF} \
+     ${library}.bam \
+     > ${library}.mpileup
+cut -f 1,2,4 ${library}.mpileup > ${library}_depth.txt
 
 ######################################################################
 
 # Very lenient variant calling:
 srun java -jar varscan.jar mpileup2snp \
-     ${library}_virus.mpileup \
-     --min-var-freq 0.001 \
-     --p-value 0.5 \
+     ${library}.mpileup \
+     --min-var-freq 0.0001 \
+     --p-value 0.9999 \
      --output-vcf   \
      > ${library}_varscan-snp.vcf.tsv
 
 srun java -jar varscan.jar mpileup2indel \
-     ${library}_virus.mpileup \
-     --min-var-freq 0.001 \
-     --p-value 0.5 \
+     ${library}.mpileup \
+     --min-var-freq 0.0001 \
+     --p-value 0.9999 \
      --output-vcf   \
      > ${library}_varscan-indel.vcf.tsv
 

@@ -28,6 +28,14 @@ not realizing that I had missed the stop codon,
 which later provided inconvenient
 when providing annotations to GenBank.
 
+To count reads mapping to the E. coli genome
+I included the closest genome to DH5alpha I could find,
+GenBank CP001637.1.
+To conserve disk space
+that sequence is not included in this repository.
+The scripts assume that the file is present
+and is named 'CP001637.1.fasta'
+
 
 The Slurm job scripts
 are numbered in the order
@@ -52,11 +60,14 @@ with one job per library.
 We trim reads with Cutadapt (010),
 align them with BWA MEM (020),
 and do the processing needed
-for calling variants with VarScan (030).
-These steps are split into multiple job scripts
-mainly because the BWA MEM step
-benefits more from allocating multiple CPU cores
-than the others do.
+for calling variants with VarScan.
+However, I provide a second option for indexing the reference sequences
+(via uncommenting a few lines)
+because in reality I indexed the the sequences one at a time,
+not all four at once (with the single 015 script).
+I indexed a bwa database the first time I ran each script
+and then commented the relevant lines out
+for the second and third libraries for each plasmid.
 
 FastQ files can be downloaded from the SRA
 with the 005_download-data-from-SRA.sh script
@@ -72,9 +83,14 @@ generated from them
 `ls` is used (with `sed`)
 to get prefixes from the names of those input files
 that are then then used for subsequent output files.
-Output from the 020 and 030 scripts
-is written to a third directory
+Output from the 02* scripts
+could be written to a third directory
 (OUTDIR).
+Currently a single directory (".")
+is used for all of those,
+such that all input and output
+are assumed to be in the directory
+from which the job scripts are run.
 
 Job scripts were run on a cluster
 on which Lmod is used to manage software.
