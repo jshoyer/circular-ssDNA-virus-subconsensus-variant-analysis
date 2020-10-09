@@ -100,6 +100,10 @@ is used for all of those,
 such that all input and output
 are assumed to be in the directory
 from which the job scripts are run.
+The R script read-in-and-graph-read-depth-numbers.R
+in turn assumes that the read depth tables
+are in the current directory,
+which is easily changed by editing the relevant variable.
 
 Job scripts were run on a cluster
 on which Lmod is used to manage software.

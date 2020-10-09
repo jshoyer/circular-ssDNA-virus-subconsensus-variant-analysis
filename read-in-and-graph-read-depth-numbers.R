@@ -1,39 +1,27 @@
 
-#' Adapted from another script
-#' starting 2020-06-11
-#'
 #' This script was used in making the figure
 #' for the resource announcement paper
 #' and also for calculating minimum and average coverage.
 
-# Cf. ../2019-02-08_temperature-a/work-up-read-counts.R
-#     ../2018-05-04_temperature/work-up-read-counts.R
 library(dplyr)
 library(tidyr) # v1.0.0 or higher
 library(ggplot2)
 theme_set(theme_minimal())
 
-source("../R/readSamtoolsDepth.R")
-#source("~/r/ncsu-illumina/R/readSamtoolsDepth.R")
+source("helper-functions/readSamtoolsDepth.R")
 
-#' Input files were made with 02_bwa scripts,
-#' downloaded with rsync (see readme.txt)
+#' Input files were made with sbatch job scripts
 inputFilePath20170822 <-
-    "../2017-08-22_plasmid/2020-06-11_tables"
-#   "../2017-08-22_plasmid/2020-06-11_tables/AB1_S4_depth.txt
+    "."  # specify another path to the tables, if desired
 
-
-
-#' ** Depth
-# ../R/readSamtoolsDepth.R
-
+#' ** Read in files
 depthFiles20170822 <-
     dir(inputFilePath20170822,
-        pattern = "depth",
+        pattern = "depth.txt",
         full.names = TRUE)
 depthFileNames20170822 <-
     dir(inputFilePath20170822,
-        pattern = "depth")
+        pattern = "depth.txt")
 
 depthFilePrefixes20170822 <- gsub("_depth.txt", "",
                              depthFileNames20170822)
