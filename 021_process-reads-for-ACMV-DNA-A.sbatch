@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=bwa_UPDATE_HERE
+#SBATCH --job-name=bwa_pACMV_A
 
 # Inputs:  FastQ.gz files from 010_cutadapt.sbatch
 #          (define CUTADAPTDIR below),
@@ -14,7 +14,7 @@
 
 #SBATCH --partition=main
 
-#SBATCH --array=UPDATE_HERE
+#SBATCH --array=1-3
 
 #SBATCH --cpus-per-task=5
 #SBATCH --mem=50000MB
@@ -33,7 +33,7 @@
 #SBATCH --mail-user=UPDATE_HERE
 ######################################################################
 
-FASTAREF=UPDATE_HERE
+FASTAREF=pBluescript-II_KS_+_ACMV_DNA-A_1.4mer-plus-CP001637.fasta
 CUTADAPTDIR="."
 OUTDIR="."
 
@@ -57,7 +57,7 @@ libindex=$SLURM_ARRAY_TASK_ID
 ##  uncomment to index reference once here.
 ##  $FASTAREF defined above
 
-#cp  $FASTAREF
+#cp pBluescript-II_KS_+_ACMV_DNA-A_1.4mer.fasta $FASTAREF
 #COLI_CHR=CP001637.1.fasta
 #sha1sum $COLI_CHR
 # fa97c15d4387f6b06877ffe798b669ac5aec0f3c
