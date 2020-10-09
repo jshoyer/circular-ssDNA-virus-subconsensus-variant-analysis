@@ -104,7 +104,7 @@ from which the job scripts are run.
 Job scripts were run on a cluster
 on which Lmod is used to manage software.
 If you are not using Lmod
-you'll need the relevant binaries (cutadapt, bwa, ...)
+you'll need the relevant binaries (cutadapt, bwa, fastqc, ...)
 to be in your $PATH.
 
 As noted in each job script,
@@ -115,3 +115,6 @@ I use this method
 to avoid cluttering the main output directory
 with the STDERR and STDOUT files
 that Slurm writes to disk.
+Some lines in each job script (pwd, date, module list)
+are included purely to provide context
+in the log files.
