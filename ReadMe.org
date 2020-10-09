@@ -16,6 +16,14 @@ but that is not the main goal here.
 For the data in the Sequence Read Archive,
 see https://trace.ncbi.nlm.nih.gov/Traces/study/?acc=SRP274352
 
+Relevant sentences from the paper:
+    "Reads were trimmed with CutAdapt 1.16
+     and aligned to the sequences listed in Table 1
+     with the Burrows-Wheeler Aligner (BWA-MEM v0.7.13).
+     Variants relative to the reference sequence
+     were identified with samtools v1.8
+     and VarScan v2.4.4."
+
 Full plasmid sequences
 are GenBank accessions MT856192 to 5.
 The four sequences are included here as FastA files
