@@ -41,16 +41,13 @@ The Slurm job scripts
 are numbered in the order
 in which they are to be run,
 i.e. submitted with `sbatch`
-(010_, 020_, 030_, ...).
+(005 before 010,
+ 010 and 015 before 02*).
 The workflow is similar
 to the one described
 on the [[http://www.htslib.org/workflow/#mapping_to_variant][Samtools workflow page]],
 but combines steps with pipes
 to reduce repeated disk read/write steps.
-Several parts of each script
-that need to be edited
-are indicated
-(UPDATE_HERE).
 
 Indexing of reference sequences
 needs to be done just once (015).
@@ -58,15 +55,19 @@ The other steps run in parallel,
 using a Slurm job array,
 with one job per library.
 We trim reads with Cutadapt (010),
-align them with BWA MEM (020),
+align them with BWA MEM,
 and do the processing needed
 for calling variants with VarScan.
-However, I provide a second option for indexing the reference sequences
+The read depth column
+is pulled out from mpileup files.
+
+I provide a second option for indexing the reference sequences
 (via uncommenting a few lines)
 because in reality I indexed the the sequences one at a time,
 not all four at once (with the single 015 script).
 I indexed a bwa database the first time I ran each script
 and then commented the relevant lines out
+(and adjusted job array index numbers)
 for the second and third libraries for each plasmid.
 
 FastQ files can be downloaded from the SRA
