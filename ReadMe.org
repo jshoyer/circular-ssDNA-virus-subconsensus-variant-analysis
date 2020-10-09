@@ -104,6 +104,12 @@ The R script read-in-and-graph-read-depth-numbers.R
 in turn assumes that the read depth tables
 are in the current directory,
 which is easily changed by editing the relevant variable.
+If you use the bash script to download the raw data
+you'll have to edit the R script
+because it uses table file names
+which are derived from the fastq.gz file names,
+(originally "AA1_S1" ... "EB3_S12",
+ but specified differently in the bash script).
 
 Job scripts were run on a cluster
 on which Lmod is used to manage software.
