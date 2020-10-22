@@ -134,6 +134,7 @@ is used for all of those,
 such that all input and output
 are assumed to be in the directory
 from which the job scripts are run.
+
 The R script read-in-and-graph-read-depth-numbers.R
 in turn assumes that the read depth tables
 are in the current directory,
@@ -144,6 +145,11 @@ because it uses table file names
 which are derived from the fastq.gz file names,
 (originally "AA1_S1" ... "EB3_S12",
  but specified differently in the bash script).
+The R script
+generates Figure 1 from the paper
+(one library per plasmid),
+and a more complete set of read depth graphs
+(3 libraries × 4 plasmids)
 
 Job scripts were run on a cluster
 on which Lmod is used to manage software.
