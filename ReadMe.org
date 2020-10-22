@@ -8,6 +8,7 @@ It is released for transparency,
 as an aid in understanding the work.
 I archived the code
 at Zenodo.org
+(record [[https://zenodo.org/record/4075362][4075362]])
 via a GitHub repository.
 If someone can reuse the code
 (after adjusting paths)
