@@ -37,6 +37,39 @@ not realizing that I had missed the stop codon,
 which later provided inconvenient
 when providing annotations to GenBank.
 
+As described in the paper,
+ACMV sequences were quite different
+from the previously described ones.
+The EACMCV virus monomer units
+in the two relevant plasmids
+were close but not identical
+to previously deposited sequences,
+with 4 and 2 single-nucleotide differences,
+respectively:
+#+BEGIN_SRC
+EACMCV DNA-A:
+
+MT856195  121   TATTGAGTTTTGACTTTATATACTTCGTCACGAAGTAGTGGAGCGCGTCAAAATGTGGAA  180
+                |||||||||||||||||| ||||||||||||||||||||| |||||||||||||||||||
+AF112354  128   TATTGAGTTTTGACTTTAAATACTTCGTCACGAAGTAGTGRAGCGCGTCAAAATGTGGAA  187
+
+MT856195  181   T-CCGTTAGTTAACGATTTTCCGGAAA-CCGTTCACGGTTTCCGTTCGATGCTTGCTGTT  238
+                | ||||||||||||||||||||||||| ||||||||||||||||||||||||||||||||
+AF112354  188   TCCCGTTAGTTAACGATTTTCCGGAAACCCGTTCACGGTTTCCGTTCGATGCTTGCTGTT  247
+
+
+
+EACMCV DNA-B:
+
+MT856192  1621  CAGAAGTCTATGCAATCTTTTGTGTATCCCTTGGATAATATGTTGATTGTTGGGGGCTTG  1680
+                |||||||||||||||||||||||||||||||||||||||||||||||||| |||||||||
+FJ826890  1621  CAGAAGTCTATGCAATCTTTTGTGTATCCCTTGGATAATATGTTGATTGTGGGGGGCTTG  1680
+
+MT856192  2701  ATCTGTGTAATTGCGGCCATCCGAT-TAATATT  2732
+                ||||||||||||||||||||||||| |||||||
+FJ826890  2701  ATCTGTGTAATTGCGGCCATCCGATTTAATATT  2733
+#+END_SRC
+
 To count reads mapping to the E. coli genome
 I included the closest genome to DH5alpha I could find,
 GenBank CP001637.1.
