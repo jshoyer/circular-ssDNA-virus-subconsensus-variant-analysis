@@ -1,6 +1,8 @@
 
 This code supports
-a resource anouncement paper
+a [[https://doi.org/10.1128/MRA.00802-20][resource anouncement paper]]
+(Hoyer et al. 2020,
+ https://doi.org/fhq2)
 describing deep sequencing
 of infectious clone plasmids
 originally described by Fondong et al. (2000, 2011).
