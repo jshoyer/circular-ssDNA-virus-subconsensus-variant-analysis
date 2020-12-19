@@ -38,10 +38,10 @@ FASTAREF_2=pUC19_ACMV_DNA-B_1.5mer-plus-CP001637.fasta
 cat pUC19_ACMV_DNA-B_1.5mer.fasta > $FASTAREF_2
 
 FASTAREF_3=pBluescript_II_KS_+_EACMCV_DNA-A_1.6mer-plus-CP001637.fasta
-cat pBluescript_II_KS_+_EACMCV_DNA-A_1.6mer.fasta > FASTAREF_3
+cat pBluescript_II_KS_+_EACMCV_DNA-A_1.6mer.fasta > $FASTAREF_3
 
 FASTAREF_4=pSL1180_EACMCV_DNA-B_1.6mer-plus-CP001637.fasta
-cat pSL1180_EACMCV_DNA-B_1.6mer.fasta > FASTAREF_4
+cat pSL1180_EACMCV_DNA-B_1.6mer.fasta > $FASTAREF_4
 
 
 COLI_CHR=CP001637.1.fasta
