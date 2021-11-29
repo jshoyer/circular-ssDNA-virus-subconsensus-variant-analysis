@@ -13,6 +13,12 @@ If someone can reuse the code
 that is great,
 but that is not the main goal here.
 
+Input Illumina data
+is available from the NCBI Sequence Read Archive
+as PRJNA782339.
+See 005_download-data-from-SRA.sh
+for recommended file names.
+
 The Slurm job scripts
 are numbered in the order
 in which they are to be run,
