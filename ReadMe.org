@@ -5,9 +5,9 @@ that are in preparation.
 It is released for transparency,
 as an aid in understanding the work.
 The code for specific papers
-will be archived
+has been or will be archived
 at Zenodo.org
-via forked GitHub repositories.
+via separate GitHub repositories.
 If someone can reuse the code
 (after adjusting paths)
 that is great,

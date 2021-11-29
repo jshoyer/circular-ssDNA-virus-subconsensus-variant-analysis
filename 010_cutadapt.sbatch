@@ -64,7 +64,7 @@ srun cutadapt\
      -o ${OUTPREFIX[$libindex-1]}_R1_trimmed.fastq.gz\
      -p ${OUTPREFIX[$libindex-1]}_R2_trimmed.fastq.gz\
      ${FASTQDIR}/${INPUTFASTQR1[libindex-1]}\
-     ${FASTQDIR}/${OUTPREFIX[libindex-1]}_R2_001.fastq.gz
+     ${FASTQDIR}/${OUTPREFIX[libindex-1]}_R2_001.fastq.gz\
      > ${OUTPREFIX[$libindex-1]}_cutadapt-report.txt
 
 #####################################################
