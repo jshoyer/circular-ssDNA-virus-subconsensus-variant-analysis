@@ -86,10 +86,13 @@ srun samtools index ${library}_virus_marked_duplicates.bam
 
 ########################################
 
-srun samtools mpileup -s \
+srun samtools mpileup -s -d 1000000000 \
      -f $FASTAREF \
      ${library}_virus_marked_duplicates.bam \
      > ${library}_virus.mpileup
+
+# Equivalent to what `samtools depth` would yield:
+cut -f 1,2,4 ${library}.mpileup > ${library}_depth.txt
 
 ######################################################################
 
@@ -97,14 +100,14 @@ srun samtools mpileup -s \
 srun java -jar varscan.jar mpileup2snp \
      ${library}_virus.mpileup \
      --min-var-freq 0.001 \
-     --p-value 0.5 \
+     --p-value 0.999999 \
      --output-vcf   \
      > ${library}_varscan-snp.vcf.tsv
 
 srun java -jar varscan.jar mpileup2indel \
      ${library}_virus.mpileup \
      --min-var-freq 0.001 \
-     --p-value 0.5 \
+     --p-value 0.999999 \
      --output-vcf   \
      > ${library}_varscan-indel.vcf.tsv
 
