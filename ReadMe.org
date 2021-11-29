@@ -19,6 +19,13 @@ as PRJNA782339.
 See 005_download-data-from-SRA.sh
 for recommended file names.
 
+graph-variant-call-results.R
+reproduces Figure 3 in the paper.
+It depends on work-up-variant-calls.R,
+which also reproduces the supplemental tables
+(along with work-up-read-counts.R).
+
+
 The Slurm job scripts
 are numbered in the order
 in which they are to be run,
