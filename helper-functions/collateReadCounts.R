@@ -70,20 +70,14 @@ collateReadCounts <-
 
     virusMappingWide <- select(virusMappingWide,
                                "libraryFastQfile" = filePrefix,
-                               "ACMV_A" =  "ACMV_DNA-A_v2",
-                               "ACMV_B" =  "ACMV_DNA-B_v3",
-                               "EACMCV_A" = "EACMCV_DNA-A",
-                               "EACMCV_B" = "EACMCV_DNA-B",
-                               host = host,
-                               "SEGS1" = AY836366.1,
-                               "SEGS2" = AY836367.1,
+                               CabLCV_A = "CabLCV_DNA-A",
+                               CabLCV_B = "CabLCV_DNA-B",
                                phiX174 = "phi-X174_NC_001422.1",
-                               CaLCuV_A = "CaLCuV_DNA-A",
-                               CaLCuV_B = "CaLCuV_DNA-B",
+                               host = host,
                                )
 
     #' Ugh!
-    virusMappingWide$unmapped <- virusMappingDf$numUnmappedReads[10 * (1:numLibraries)]
+    virusMappingWide$unmapped <- virusMappingDf$numUnmappedReads[(numRefSequencesOfInterest + 1) * (1:numLibraries)]
 
     if (sumThemUp) {
     virusMappingWide <-
