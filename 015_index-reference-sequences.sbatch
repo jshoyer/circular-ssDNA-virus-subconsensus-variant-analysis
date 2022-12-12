@@ -4,7 +4,6 @@
 
 ######################################################################
 
-# Cf. https://rutgers-oarc.github.io/amarel/#serialjobs
 #SBATCH --partition=main
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=2000MB
@@ -14,14 +13,9 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 
-# Directory for log files must exist for this job script to work
-#                    V
-#SBATCH --output=slurm-logs/job%j.node%n.%N.out
-#SBATCH  --error=slurm-logs/job%j.node%n.%N.err
+#SBATCH --output=job%j_%x_node%n.%N.index%a.out
+#SBATCH --error=job%j_%x_node%n.%N.index%a.err  # optional
 #SBATCH --export=ALL
-#SBATCH --mail-type=ALL
-################################
-#SBATCH --mail-user=UPDATE_HERE
 
 ######################################################################
 

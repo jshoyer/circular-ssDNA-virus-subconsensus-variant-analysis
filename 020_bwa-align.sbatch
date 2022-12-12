@@ -21,13 +21,8 @@
 #SBATCH --ntasks=1
 #SBATCH --export=ALL
 
-# Directory for log files must exist for this job script to work
-#                    V
-#SBATCH --output=slurm-logs/job%j.node%n.%N.index%a.out
-#SBATCH  --error=slurm-logs/job%j.node%n.%N.index%a.err
-#SBATCH --mail-type=ALL
-################################
-#SBATCH --mail-user=UPDATE_HERE
+#SBATCH --output=job%j_%x_node%n.%N.index%a.out
+#SBATCH --error=job%j_%x_node%n.%N.index%a.err  # optional
 ######################################################################
 
 FASTAREF=UPDATE_HERE

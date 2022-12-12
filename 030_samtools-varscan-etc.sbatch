@@ -22,12 +22,9 @@
 #SBATCH --requeue
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --output=slurm-logs/job%j.node%n.%N.index%a.out
-#SBATCH --error=slurm-logs/job%j.node%n.%N.index%a.err
+#SBATCH --output=job%j_%x_node%n.%N.index%a.out
+#SBATCH --error=job%j_%x_node%n.%N.index%a.err  # optional
 #SBATCH --export=ALL
-#SBATCH --mail-type=ALL
-
-#SBATCH --mail-user=UPDATE_HERE
 
 ######################################################################
 
@@ -112,5 +109,9 @@ srun java -jar varscan.jar mpileup2indel \
      > ${library}_varscan-indel.vcf.tsv
 
 ######################################################################
+
+# https://sites.google.com/view/cluster-user-guide
+sacct --units=G --format=MaxRSS,MaxDiskRead,MaxDiskWrite,Elapsed,NodeList -j $SLURM_JOBID
+
 module list
 date +"%Y-%m-%d %H:%M"
