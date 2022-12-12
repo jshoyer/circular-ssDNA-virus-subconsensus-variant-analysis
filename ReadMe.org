@@ -79,17 +79,12 @@ If you are not using Lmod
 you'll need the relevant binaries (cutadapt, bwa, fastqc, ...)
 to be in your $PATH.
 
-As noted in each job script,
-a slurm-logs/ subdirectory must exist
-in the directory
-in which the scripts are to be run.
-I use this method
-to avoid cluttering the main output directory
-with the STDERR and STDOUT files
-that Slurm writes to disk.
 Some lines in each job script (pwd, date, module list)
 are included purely to provide context
-in the log files.
+in the log files
+that Slurm writes to disk
+(STDERR and STDOUT,
+ in one or two files).
 
 
 First ‘release’ of CabLCV code
