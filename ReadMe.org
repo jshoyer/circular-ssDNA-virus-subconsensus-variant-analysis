@@ -1,13 +1,13 @@
 
 This code supports
 a scientific manuscript
-on cabbage leaf curl virus mutation.
+on cabbage leaf curl virus mutation
+(Hoyer et al. 2022 https://doi.org/HKXQ).
 It is released for transparency,
 as an aid in understanding the work.
-The code for related papers
-has been or will be archived
-at Zenodo.org
-via separate GitHub repositories.
+The code
+has been archived
+at Zenodo.org.
 If someone can reuse the code
 (after adjusting paths)
 that is great,
@@ -93,6 +93,9 @@ in the log files.
 
 
 First ‘release’ of CabLCV code
+(Zenodo record [[https://zenodo.org/record/5736526][5736526]])
 intentionally included a non-duplicated set of job scripts
 that have slightly different options commented out
 and other idiosyncrasies.
+snpEff job script merged into other one
+for second release
