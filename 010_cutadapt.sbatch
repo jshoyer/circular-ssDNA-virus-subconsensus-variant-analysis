@@ -9,9 +9,6 @@
 #     Cutadapt 1.16 or similar
 #     fastQC
 
-#SBATCH --partition=main
-#SBATCH --requeue
-
 #SBATCH --array=1-12
 
 #SBATCH --nodes=1
@@ -19,15 +16,6 @@
 #SBATCH --cpus-per-task=1           # Cores per task (>1 if multithread tasks)
 #SBATCH --mem=500                  # Real memory (RAM) required (MB)
 #SBATCH --time=0:30:00              # Total run time limit (HH:MM:SS)
-
-# Directory for log files MUST exist before running this job script.
-#                V
-#SBATCH --output=slurm-logs/job%j.node%n.%N.index%a.out
-#SBATCH --error=slurm-logs/job%j.node%n.%N.index%a.err
-#SBATCH --export=ALL
-#SBATCH --mail-type=ALL
-#########################################
-#SBATCH --mail-user=UPDATE_HERE
 
 ######################################################################
 

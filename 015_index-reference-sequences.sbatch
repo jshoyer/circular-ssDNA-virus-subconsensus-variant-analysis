@@ -2,23 +2,11 @@
 
 #SBATCH --job-name=indexBwa_Plasmid
 
-#SBATCH --partition=main
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=25000                  # Real memory (RAM) required (MB)
 #SBATCH --time=01:00:00              # Total run time limit (HH:MM:SS)
-
-#SBATCH --requeue
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-
-# Log file directory MUST exist before running this job script.
-#                V
-#SBATCH --output=slurm-logs/job%j.node%n.%N.index%a.out
-#SBATCH --error=slurm-logs/job%j.node%n.%N.index%a.err
-#SBATCH --export=ALL
-#SBATCH --mail-type=ALL
-#########################################
-#SBATCH --mail-user=UPDATE_HERE
 
 ######################################################################
 date +"%Y-%m-%d %H:%M"

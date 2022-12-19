@@ -12,25 +12,14 @@
 
 ######################################################################
 
-#SBATCH --partition=main
-
 #SBATCH --array=10-12
 
 #SBATCH --cpus-per-task=5
 #SBATCH --mem=50000MB
 #SBATCH --time=2:00:00
-
-#SBATCH --requeue
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 
-# Directory for log files must exist for this job script to work
-#                    V
-#SBATCH --output=slurm-logs/job%j.node%n.%N.index%a.out
-#SBATCH --error=slurm-logs/job%j.node%n.%N.index%a.err
-#SBATCH --mail-type=ALL
-################################
-#SBATCH --mail-user=UPDATE_HERE
 ######################################################################
 
 FASTAREF=pSL1180_EACMCV_DNA-B_1.6mer-plus-CP001637.fasta
