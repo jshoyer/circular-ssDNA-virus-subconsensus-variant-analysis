@@ -42,10 +42,6 @@ fossil artifact 1bc72e6c4e083 $cablcvFile     -R ~/fossil-repos/pire.fossil
 
 cat $cablcvFile            > $newfasta
 
-fossil artifact e6243538b881ee cablcv.bed     -R ~/fossil-repos/pire.fossil
-#fossil artifact 6f3d90bc051c031c6c parental-CabLCV-DNA-A-pNSB1090.bed  -R ~/fossil-repos/pire.fossil
-#fossil artifact 212cec37eca57a895c0c6949 mutant-CabLCV-DNA-A-pNSB1101.bed  -R ~/fossil-repos/pire.fossil
-
 #phix174.fasta:
 fossil artifact 6f595e1ee7  -R ~/fossil-repos/pire.fossil \
           >> $newfasta

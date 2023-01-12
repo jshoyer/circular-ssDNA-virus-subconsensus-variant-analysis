@@ -4,9 +4,9 @@
 
 # Inputs:  sorted and indexed BAM files, from 020_bwa-align.sbatch
 #          (Names specified based on contents of CUTADAPTDIR -- define below),
-#          a BED file with "chromosome" lengths.  (Define bedfile below
-#          and an indexed reference sequence from 015_index-reference-sequences.sbatch
-#          (define FASTAREF below).
+#          a BED file with "chromosome" lengths (define $BEDFILE below)
+#          and an indexed reference sequence
+#          (define $FASTAREF below).
 # Outputs: VCF files (and intermediate files)
 
 
@@ -48,13 +48,6 @@ module load samtools # Use 1.8, not 1.3.1
 module load java     #/9.0.4
 
 BEDFILE=cablcv.bed
-# This was done in earlier 010A script:
-#fossil artifact e6243538b881ee $BEDFILE \
-#       -R pire.fossil
-# Used for getting subsets of reads -- below.
-
-#BEDFILE=parental-CabLCV-DNA-A-pNSB1090.bed
-#BEDFILE=mutant-CabLCV-DNA-A-pNSB1101.bed
 
 #FASTAREF=cablcv-plus-phix174-plus-Athaliana-tair10.fasta
 FASTAREF=mutagenized-cablcv-plus-phix174-plus-Athaliana-tair10.fasta  # D.
