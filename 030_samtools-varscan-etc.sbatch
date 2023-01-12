@@ -46,12 +46,9 @@ echo This is task $SLURM_ARRAY_TASK_ID
 pwd
 libindex=$SLURM_ARRAY_TASK_ID
 
-module purge
 module load samtools # Use 1.8, not 1.3.1
 #           so that mpileup -d 0 option (below) will work.
 module load java     #/9.0.4
-module list
-hostname
 
 BEDFILE=cablcv.bed
 # This was done in earlier 010A script:
@@ -62,9 +59,9 @@ BEDFILE=cablcv.bed
 #BEDFILE=parental-CabLCV-DNA-A-pNSB1090.bed
 #BEDFILE=mutant-CabLCV-DNA-A-pNSB1101.bed
 
-CUTADAPTDIR=/projects/f_deenr_1/duffy-nsf-pire/results/2019-04-30_calcuv
 #FASTAREF=cablcv-plus-phix174-plus-Athaliana-tair10.fasta
 FASTAREF=mutagenized-cablcv-plus-phix174-plus-Athaliana-tair10.fasta  # D.
+CUTADAPTDIR="."
 
 #FASTAREF=cablcv-plasmid-plus-phix174-plus-E-coli-DH10-CP001637.fasta  # B.
 #FASTAREF=cablcv-mutant-plasmid-plus-phix174-plus-E-coli-DH10.fasta    # C.

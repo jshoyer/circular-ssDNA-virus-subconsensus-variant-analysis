@@ -33,28 +33,13 @@
 #SBATCH --error=job%j_%x_node%n.%N.index%a.err  # optional
 ######################################################################
 
-# Prerequisite:
-# sbatch 01_ script to trim reads -- see below for directory.
-#        01_index-reference-sequences-calcuv.sbatch
-
 #FASTAREF=cablcv-plus-phix174-plus-Athaliana-tair10.fasta
 #FASTAREF=cablcv-plasmid-plus-phix174-plus-E-coli-DH10-CP001637.fasta  # B.
 #FASTAREF=cablcv-mutant-plasmid-plus-phix174-plus-E-coli-DH10.fasta   # C.
 FASTAREF=mutagenized-cablcv-plus-phix174-plus-Athaliana-tair10.fasta
 
-# use proper cutadapt-trimmed reads:
-#CUTADAPTDIR=/projects/f_deenr_1/duffy-nsf-pire/results/2019-04-30_calcuv
-# I copied the files from the preceding directory to this one:
-CUTADAPTDIR=/projects/f_deenr_1/duffy-nsf-pire/results/2019-11-17_cablcv
-# Therefore the files are in the current directory
-# and we could dispense with the $CUTADAPTDIR variable.
-# However, it is easier to keep it, for now.
-
-# Previously:
-#FASTQDIR_1="/projects/f_deenr_1/duffy-nsf-pire/illumina-fastq/2017-02-10_pilot"
-
-#OUTDIR=/projects/f_deenr_1/duffy-nsf-pire/results/2019-11-17_cablcv
-# same
+CUTADAPTDIR="."
+OUTDIR="."
 
 ######################################################################
 
@@ -69,14 +54,14 @@ libindex=$SLURM_ARRAY_TASK_ID
 
 ######################################################################
 
-#cd $CUTADAPTDIR
+cd $CUTADAPTDIR
 #pwd
 R1FILES=( $(ls *_R1_trimmed.fastq.gz) )
 libcodearray=( $(ls *_R1_trimmed.fastq.gz | sed 's/_R1_trimmed.fastq.gz//') )
 
 libcode=${libcodearray[libindex-1]}
 
-#cd $OUTDIR
+cd $OUTDIR
 pwd
 
 srun bwa mem -t 9 \

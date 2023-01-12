@@ -3,22 +3,12 @@
 #SBATCH --job-name=cutadapt_CabLCV
 
 # Inputs:  a directory of FastQ.gz files -- raw reads
-# Outputs: FastQ.gz files -- trimmed adaptor-parsed reads
+# Outputs: FastQ.gz files -- trimmed adapter-parsed reads
 
-# This script is more complicated than others
-# because libraries for this experiment
-# were sequenced across two flowcells
-# (2017-02-10 and 2017-08-03)
-
-######################################################################
-
-# Dependencies:
-#     Cutadapt 1.16 or similar
-
-#SBATCH --partition=main
-#SBATCH --requeue
-
-#SBATCH --array=7-13
+#SBATCH --array=1-11
+# This job script is for the infected plant samples --
+# plasmid reads are trimmed with a seperate job script.
+# (Note that the DNA-B plasmid has Nextera adapter sequences.)
 
 
 #SBATCH --nodes=1
@@ -33,46 +23,23 @@
 
 ######################################################################
 
-CUTADAPTDIR=/projects/f_deenr_1/duffy-nsf-pire/results/2019-04-30_calcuv
-
-date +"%Y-%m-%d %H:%M"
-hostname
+# Change this (and FASTQDIR_1, below)
+# if you want input or output in a different directory.
+CUTADAPTDIR="."
 
 echo This is task $SLURM_ARRAY_TASK_ID
-
-module purge
-module load FastQC
-module list
-
-######################################################################
-
 libindex=$SLURM_ARRAY_TASK_ID
 
-FASTQDIR_1="/projects/f_deenr_1/duffy-nsf-pire/illumina-fastq/2017-02-10_pilot"
-FASTQDIR_2="/projects/f_deenr_1/duffy-nsf-pire/illumina-fastq/2017-08-03_calcuv"
+module load FastQC
 
-cd $FASTQDIR_1
+FASTQDIR_1="."
+#cd $FASTQDIR_1
 pwd
 
 ## Fully qualified paths:
-INPUTFASTQR1_SET1=( $(ls ${FASTQDIR_1}/*_R1.fastq.gz) )
-# (cf. past sbatch job scripts)
-OUTPREFIX_SET1=( $(ls *_R1.fastq.gz | sed 's/_R1.fastq.gz//') )
-
-# Drop the FastQ files associated with *cassava* virus pilot
-# (7 to 12 for that MiSeq flowcell)
-INPUTFASTQR1=(${INPUTFASTQR1_SET1[@]:0:6})
-OUTPREFIX=(${OUTPREFIX_SET1[@]:0:6})
-
-# Add #7 to 13 (later MiSeq flowcell) to array:
-cd $FASTQDIR_2
-pwd
-INPUTFASTQR1=( ${INPUTFASTQR1[@]} $(ls ${FASTQDIR_2}/*_R1.fastq.gz) )
-OUTPREFIX=( ${OUTPREFIX[@]} $(ls *_R1.fastq.gz | sed 's/_R1.fastq.gz//') )
-
-## Again, need fully qualified paths:
-INPUTFASTQR2_single=$( echo ${INPUTFASTQR1[libindex-1]} | sed 's/_R1_/_R2_/')
-# (cf. older scripts)
+INPUTFASTQR1=( $(ls ${FASTQDIR_1}/*_R1.fastq.gz) )
+OUTPREFIX=( $(ls *_R1.fastq.gz | sed 's/_R1.fastq.gz//') )
+INPUTFASTQR2_single=$( echo ${INPUTFASTQR1[$libindex-1]} | sed 's/_R1/_R2/')
 
 cd $CUTADAPTDIR
 pwd
@@ -87,16 +54,6 @@ srun cutadapt\
      ${INPUTFASTQR1[libindex-1]}\
      $INPUTFASTQR2_single \
      > ${OUTPREFIX[$libindex-1]}_cutadapt-report.txt
-
-#TROUBLESHOOT=
-echo
-echo 'Full paths: ' ${INPUTFASTQR1[@]}
-echo 'Prefixes:   ' ${OUTPREFIX[@]}
-echo
-echo 'Library' $libindex
-echo ${OUTPREFIX[libindex-1]}
-echo '1. ' ${INPUTFASTQR1[libindex-1]}
-echo '2. ' $INPUTFASTQR2_single
 
 #####################################################
 
