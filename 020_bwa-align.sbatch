@@ -8,11 +8,6 @@
 #          (define FASTAREF below).
 # Outputs: sorted and indexed BAM files, plus tables of read counts
 
-
-######################################################################
-
-#SBATCH --partition=main
-
 #SBATCH --array=3-5,9-11
 # 14 libraries total.
 # #14 is mutagenized plasmid (pNSB1101).
@@ -23,11 +18,8 @@
 #SBATCH --cpus-per-task=10
 #SBATCH --mem=50000MB
 #SBATCH --time=2:00:00
-
-#SBATCH --requeue
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --export=ALL
 
 #SBATCH --output=job%j_%x_node%n.%N.index%a.out
 #SBATCH --error=job%j_%x_node%n.%N.index%a.err  # optional

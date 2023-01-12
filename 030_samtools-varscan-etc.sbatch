@@ -12,8 +12,6 @@
 
 ######################################################################
 
-#SBATCH --partition=main
-
 #SBATCH --array=3-5,9-11
 # 14 libraries total.
 # #14 is mutagenized plasmid (pNSB1101).
@@ -40,10 +38,9 @@
 
 ################################################################################
 
-OUTDIR=/projects/f_deenr_1/duffy-nsf-pire/results/2019-11-17_cablcv
+OUTDIR="."
 cd $OUTDIR
 echo This is task $SLURM_ARRAY_TASK_ID
-pwd
 libindex=$SLURM_ARRAY_TASK_ID
 
 module load samtools # Use 1.8, not 1.3.1
