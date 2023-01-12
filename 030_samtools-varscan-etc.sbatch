@@ -41,13 +41,6 @@
 ################################################################################
 
 OUTDIR=/projects/f_deenr_1/duffy-nsf-pire/results/2019-11-17_cablcv
-date +"%Y-%m-%d %H:%M"
-#fossil sha3 $(pwd)/03_samtools-varscan-etc-calcuv.sbatch
-#fossil sha3 $(pwd)/030A_samtools-varscan-etc-plant-samples.sbatch
-#fossil sha3 $(pwd)/030B_samtools-varscan-parental-plasmid.sbatch
-#fossil sha3 $(pwd)/030C_samtools-varscan-mutagenized-plasmid.sbatch
-fossil sha3 $(pwd)/030D_samtools-varscan-mutant-inoculated-plant-samples.sbatch
-
 cd $OUTDIR
 echo This is task $SLURM_ARRAY_TASK_ID
 pwd

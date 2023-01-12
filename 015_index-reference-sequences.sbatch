@@ -19,13 +19,6 @@
 
 ######################################################################
 
-date +"%Y-%m-%d %H:%M"
-#fossil sha3 $(pwd)/01_index-reference-sequences-calcuv.sbatch
-#fossil sha3 $(pwd)/010A_index-reference-sequences-CabLCV-TAIR10.sbatch
-#fossil sha3 010B_index-ref-CabLCV-plasmid-plus-E-coli-DH10-CP001637.sbatch
-#fossil sha3 010C_index-mutagenized-plasmid-plus-E-coli-DH10.sbatch
-fossil sha3 010D_index-ref-mutagenized-CabLCV-TAIR10.sbatch
-
 export MODULEPATH=$MODULEPATH:/projects/community/modulefiles
 module purge
 module load bwa samtools

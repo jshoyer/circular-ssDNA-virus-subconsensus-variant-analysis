@@ -58,13 +58,6 @@ CUTADAPTDIR=/projects/f_deenr_1/duffy-nsf-pire/results/2019-11-17_cablcv
 
 ######################################################################
 
-date +"%Y-%m-%d %H:%M"
-#fossil sha3 $(pwd)/02_bwa-align-calcuv.sbatch
-#fossil sha3 $(pwd)/020A_bwa-align-plant-samples.sbatch
-#fossil sha3 $(pwd)/020B_bwa-parental-plasmid.sbatch
-#fossil sha3 $(pwd)/020C_bwa-mutagenized-plasmid.sbatch
-fossil sha3 $(pwd)/020D_bwa-align-mutant-inoculated-plant-samples.sbatch
-
 module purge
 module load bwa samtools
 module list
