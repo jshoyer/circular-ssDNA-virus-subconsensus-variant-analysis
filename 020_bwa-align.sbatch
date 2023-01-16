@@ -15,11 +15,8 @@
 #SBATCH --cpus-per-task=10
 #SBATCH --mem=50000MB
 #SBATCH --time=2:00:00
-
-#SBATCH --requeue
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --export=ALL
 
 #SBATCH --output=job%j_%x_node%n.%N.index%a.out
 #SBATCH --error=job%j_%x_node%n.%N.index%a.err  # optional
@@ -46,7 +43,7 @@ pwd
 R1FILES=( $(ls *_R1_trimmed.fastq.gz) )
 libcodearray=( $(ls *_R1_trimmed.fastq.gz | sed 's/_R1_trimmed.fastq.gz//') )
 
-libcode=${libcodearray[libindex-1]}
+library=${libcodearray[libindex-1]}
 
 #mkdir $OUTDIR
 cd $OUTDIR
@@ -54,21 +51,21 @@ pwd
 
 srun bwa mem -t 9 \
      $FASTAREF \
-     ${CUTADAPTDIR}/${libcode}_R1_trimmed.fastq.gz \
-     ${CUTADAPTDIR}/${libcode}_R2_trimmed.fastq.gz |
-    samtools sort -o ${libcode}_bwa_sorted.bam
-srun samtools index   ${libcode}_bwa_sorted.bam
+     ${CUTADAPTDIR}/${library}_R1_trimmed.fastq.gz \
+     ${CUTADAPTDIR}/${library}_R2_trimmed.fastq.gz |
+    samtools sort -o ${library}_bwa_sorted.bam
+srun samtools index   ${library}_bwa_sorted.bam
 
 ## drop secondary alignments:
-srun samtools view -h -F 2048 ${libcode}_bwa_sorted.bam \
-                   -b -o ${libcode}_bwa_unique.bam
-srun samtools index   ${libcode}_bwa_unique.bam
+srun samtools view -h -F 2048 ${library}_bwa_sorted.bam \
+                   -b -o ${library}_bwa_unique.bam
+srun samtools index   ${library}_bwa_unique.bam
 
-srun samtools idxstats ${libcode}_bwa_unique.bam \
-    > ${libcode}_idxstats.tsv
+srun samtools idxstats ${library}_bwa_unique.bam \
+    > ${library}_idxstats.tsv
 
-srun samtools flagstat ${libcode}_bwa.bam > ${libcode}_flagstat.txt
-srun samtools stats   ${libcode}_bwa.bam > ${libcode}_stats.txt
+srun samtools flagstat ${library}_bwa.bam > ${library}_flagstat.txt
+srun samtools stats   ${library}_bwa.bam > ${library}_stats.txt
 
 ######################################################################
 module list

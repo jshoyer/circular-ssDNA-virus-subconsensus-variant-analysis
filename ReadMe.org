@@ -1,7 +1,6 @@
 
 This code supports
-scientific manuscripts
-that are in preparation.
+a series of scientific papers.
 It is released for transparency,
 as an aid in understanding the work.
 The code for specific papers

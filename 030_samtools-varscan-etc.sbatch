@@ -11,20 +11,16 @@
 
 ######################################################################
 
-#SBATCH --partition=main
-
 #SBATCH --array=UPDATE_HERE
 
 #SBATCH --cpus-per-task=2
 #SBATCH --mem=30000MB
 #SBATCH --time=2:00:00
 
-#SBATCH --requeue
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --output=job%j_%x_node%n.%N.index%a.out
 #SBATCH --error=job%j_%x_node%n.%N.index%a.err  # optional
-#SBATCH --export=ALL
 
 ######################################################################
 
@@ -35,21 +31,16 @@ module load java     #/9.0.4
 #     VarScan v2.4.3 (below)
 
 ################################################################################
-OUTDIR=UPDATE_HERE
-
-date +"%Y-%m-%d %H:%M"
+OUTDIR="." # UPDATE_HERE, if desired
 cd $OUTDIR
 echo This is task $SLURM_ARRAY_TASK_ID
 pwd
 libindex=$SLURM_ARRAY_TASK_ID
 
-module list
-hostname
-
 BEDFILE=UPDATE_HERE
 # Used for getting subsets of reads -- below.
 
-CUTADAPTDIR=UPDATE_HERE
+CUTADAPTDIR="." # UPDATE_HERE
 FASTAREF=UPDATE_HERE
 
 cd $CUTADAPTDIR
