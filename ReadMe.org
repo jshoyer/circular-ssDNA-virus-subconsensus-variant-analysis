@@ -33,7 +33,7 @@ i.e. submitted with `sbatch`
 (010_, 020_, 030_, ...).
 The workflow is similar
 to the one described
-on the [[http://www.htslib.org/workflow/#mapping_to_variant][Samtools workflow page]],
+on the [[http://www.htslib.org/workflow/wgs-call.html][Samtools workflow page]],
 but combines steps with pipes
 to reduce repeated disk read/write steps.
 Several parts of each script
@@ -89,6 +89,7 @@ on which Lmod is used to manage software.
 If you are not using Lmod
 you'll need the relevant binaries (cutadapt, bwa, fastqc, ...)
 to be in your $PATH.
+A few paths to java jar files may need to be updated.
 
 Some lines in each job script (pwd, date, module list)
 are included purely to provide context
@@ -103,5 +104,5 @@ First ‘release’ of CabLCV code
 intentionally included a non-duplicated set of job scripts
 that have slightly different options commented out
 and other idiosyncrasies.
-snpEff job script merged into other one
+Two snpEff job scripts merged into other ones
 for second release
