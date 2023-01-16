@@ -79,6 +79,9 @@ To conserve disk space
 that sequence is not included in this repository.
 The scripts assume that the file is present
 and is named 'CP001637.1.fasta'
+If you have NCBI Entrez Direct e-utilities installed,
+you can download this reference like so:
+: esearch -db nucleotide -query "CP001637.1" | efetch -format fasta > CP001637.1.fasta
 
 
 The Slurm job scripts
