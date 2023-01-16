@@ -7,36 +7,21 @@
 # 14 libraries total.
 # 3-5,9-11 -- mutant inoculum.
 
-#SBATCH --partition=main
-#SBATCH --requeue
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=1            # Cores per task (>1 if multithread tasks)
 #SBATCH --mem=500MB
-#SBATCH --time=00:05:00              # Total run time limit (HH:MM:SS)
+#SBATCH --time=00:05:00   # HH:MM:SS
 
-# Directory for log files must exist:
-#SBATCH --output=slurm-logs/job%j.node%n.%N.index%a
-#Remove space to get STDERR in a separate file.
-#V
-# SBATCH  --error=slurm-logs/job%j.node%n.%N.index%a.err
-#SBATCH --export=ALL
-#SBATCH --mail-type=ALL
 ##########################################
-#SBATCH --mail-user=UPDATE_HERE
-##########################################
-
-date +"%Y-%m-%d %H:%M"
-hostname
 
 module use /projects/community/modulefiles
 module purge
 module load java
 # I guess this is not even strictly necessary:
 module load snpEff
-module list
 
-fossil sha3 $(pwd)/034D_snpEff-annotate_mutagenized.sbatch
+SNPEFF_JAR=snpEff.jar
+
 OUTPUT_DIR=$(pwd)
 pwd
 
@@ -62,12 +47,12 @@ pwd
 ###################################################
 # Prerequisite: build database with 033_ job script
 
-java -jar /projects/community/snpEff/snpEff.jar \
+java -jar $SNPEFF_JAR \
      -c snpEff.config CabLCV_mutagenized ${library}_varscan-snp.vcf.tsv \
      -no-downstream  -no-intergenic  -no-upstream \
      -stats ${library} \
      > ${library}_snp.ann.vcf.tsv
-java -jar /projects/community/snpEff/snpEff.jar \
+java -jar $SNPEFF_JAR \
      -c snpEff.config CabLCV_mutagenized ${library}_varscan-indel.vcf.tsv \
      -no-downstream  -no-intergenic  -no-upstream \
      -stats ${library} \

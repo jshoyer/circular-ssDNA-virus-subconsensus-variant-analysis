@@ -1,0 +1,8 @@
+##gff-version 3
+CabLCV_DNA-A	.	CDS	1994	2359	.	-	.	Name=AC4
+CabLCV_DNA-A	.	CDS	1058	1447	.	-	.	Name=AC2
+CabLCV_DNA-A	.	CDS	161	916	.	+	.	Name=AV1
+CabLCV_DNA-A	.	CDS	1389	2438	.	-	.	Name=AC1
+CabLCV_DNA-A	.	CDS	913	1311	.	-	.	Name=AC3
+CabLCV_DNA-B	.	CDS	374	1144	.	+	.	Name=NSP
+CabLCV_DNA-B	.	CDS	1202	2089	.	-	.	Name=MP
