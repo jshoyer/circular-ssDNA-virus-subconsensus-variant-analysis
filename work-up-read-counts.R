@@ -25,11 +25,9 @@ filePaths20170803 <- dir(
     )
 
 filePrefix20170803 <-
-    gsub("_L001_defaults_with-host_no-supp_idxstats.tsv",
+    gsub("_no-supp_idxstats.tsv",
          "",
          fileNames20170803)
-#' Potential for confusion: two "S7" libraries (one on each flowcell).
-#' In this case we do not need to get rid of any prefix.
 
 #' One option:
 #' Drop the plasmid libraries for most purposes:
@@ -39,8 +37,8 @@ filePrefix20170803 <-
 readCounts20170803 <-
     collateReadCounts(filePaths20170803,
                       libraryIDs = filePrefix20170803,
-                      numRefSequencesOfInterest = 3,
-                      totalNumRefSequences = 10,
+                      numRefSequencesOfInterest = 16,
+                      totalNumRefSequences = 23,
                       sumThemUp = FALSE)
 
 ######################################################################

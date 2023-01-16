@@ -1,13 +1,7 @@
 
-# Adapted from read-count-helper-functions.R
-# starting on 2019-05-24
-
 #' These helper function assume that input tables
 #' from samtools idxstats
 #' are in a very specific format.
-#' This required revision of the function.
-#' See ../2019-05-22_seq-capture-ms/work-up-read-counts-and-variant-calls.R
-#' for relatively simple example input data.
 
 library(dplyr)
 library(tidyr)
@@ -71,8 +65,10 @@ collateReadCounts <-
     virusMappingWide <- select(virusMappingWide,
                                "libraryFastQfile" = filePrefix,
                                CabLCV_A = "CabLCV_DNA-A",
+                               CabLCV_A_mut = "CabLCV_DNA-A_mutagenized",
                                CabLCV_B = "CabLCV_DNA-B",
-                               phiX174 = "phi-X174_NC_001422.1",
+                               phiX174 = "phiX174_J02482",
+                               pUC119 = pUC119_BamHI-to-HindIII-inclusive,
                                host = host,
                                )
 
