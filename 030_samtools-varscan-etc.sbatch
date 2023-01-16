@@ -14,8 +14,6 @@
 
 #SBATCH --array=3-5,9-11
 # 14 libraries total.
-# #14 is mutagenized plasmid (pNSB1101).
-# #12 is parental DNA-A plasmid.
 # #1, 2, and 6-8 were inoculated with WT virus.
 # #3-5 and 9-11  were inoculated with mutagenized virus.
 

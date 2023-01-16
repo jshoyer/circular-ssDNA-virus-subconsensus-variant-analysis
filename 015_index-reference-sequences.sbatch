@@ -20,7 +20,6 @@ SNPEFF_JAR=snpEff.jar
 #cd $OUTDIR
 #pwd
 
-#newfasta=viruses-cablcv-plus-phix174-plus-Athaliana-tair10.fasta
 newfasta=viruses-mutagenized-cablcv-plus-phix174-plus-Athaliana-tair10.fasta # D.
 
 cat data/genomes/CabLCV_mutagenized.fa  > $newfasta
