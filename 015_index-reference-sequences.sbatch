@@ -31,11 +31,6 @@ sha1sum $TAIR10_chr_all
 # caf6550d05df855caad3ef35aafcd8d57028fc21
 zcat $TAIR10_chr_all    >> $newfasta
 
-# B. and C.
-COLI_CHR=CP001637.1.fasta
-sha1sum $COLI_CHR
-#cat $COLI_CHR >> $newfasta
-
 srun bwa index      $newfasta
 srun samtools faidx $newfasta
 
