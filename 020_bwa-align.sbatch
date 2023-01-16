@@ -1,19 +1,19 @@
 #!/bin/bash
 
-#SBATCH --job-name=bwa_CabLCV
+#SBATCH --job-name=CaBplasmid_2020
 
-# Inputs:  FastQ.gz files from 010_cutadapt.sbatch
-#          (define CUTADAPTDIR below),
-#          and an indexed reference sequence from 015_index-reference-sequences.sbatch
-#          (define FASTAREF below).
+# Inputs: FastQ.gz files
+#         $FASTAREF is defined and created below.
 # Outputs: sorted and indexed BAM files, plus tables of read counts
 
-#SBATCH --array=3-5,9-11
+#SBATCH --array=13
 # 14 libraries total.
 # #14 is mutagenized plasmid (pNSB1101).
-# #12 is parental DNA-A plasmid.
-# #1, 2, and 6-8 were inoculated with WT virus.
-# #3-5 and 9-11  were inoculated with mutagenized virus.
+#12 is parental DNA-A plasmid.
+# Array number is only used
+# to get the correct input fastq pair --
+# just one library for this plasmid,
+# so no reason to run multiple jobs like this in parallel.
 
 #SBATCH --cpus-per-task=10
 #SBATCH --mem=50000MB
@@ -25,55 +25,127 @@
 #SBATCH --error=job%j_%x_node%n.%N.index%a.err  # optional
 ######################################################################
 
-#FASTAREF=cablcv-plasmid-plus-phix174-plus-E-coli-DH10-CP001637.fasta  # B.
-FASTAREF=viruses-mutagenized-cablcv-plus-phix174-plus-Athaliana-tair10.fasta
-
+# Alter these if you want input or output in a different directory:
+FASTQDIR="."
 CUTADAPTDIR="."
 OUTDIR="."
+OUTDIR_2=$(pwd)
 
-######################################################################
-
-module purge
-module load bwa samtools
-module list
-hostname
+FASTAREF=$OUTDIR_2/cablcv-DNA-B-1.6mer-plus-Ecoli-CP001637.fasta
+BEDFILE=cablcv-plasmids.bed
+# UPDATE_HERE:
+module load bwa samtools java
+VARSCAN_JAR=~/miniconda3/share/varscan-2.4.4-1/VarScan.jar
 
 echo This is task $SLURM_ARRAY_TASK_ID
 
 libindex=$SLURM_ARRAY_TASK_ID
+######################################################################
+
+cd $FASTQDIR
+INPUTFASTQR1=( $(ls ${FASTQDIR}/*_R1.fastq.gz) )
+libcodearray=( $(ls *_R1.fastq.gz | sed 's/_R1.fastq.gz//') )
+library=${libcodearray[$libindex-1]}
+echo $library
+
+cd $CUTADAPTDIR
+pwd
+
+cutadapt -j 0\
+     --nextseq-trim=20\
+     -a CTGTCTCTTATACACATCTCCGAGCCCACGAGAC \
+     -A CTGTCTCTTATACACATCTGACGCTGCCGACGA \
+     -q 30\
+     -o ${library}_R1_trimmed.fastq.gz\
+     -p ${library}_R2_trimmed.fastq.gz\
+     ${FASTQDIR}/${library}_R1.fastq.gz\
+     ${FASTQDIR}/${library}_R2.fastq.gz\
+     > ${library}_cutadapt-report.txt
 
 ######################################################################
 
-cd $CUTADAPTDIR
-#pwd
-R1FILES=( $(ls *_R1_trimmed.fastq.gz) )
-libcodearray=( $(ls *_R1_trimmed.fastq.gz | sed 's/_R1_trimmed.fastq.gz//') )
+cd $OUTDIR_2;  pwd
+#INDEX_STEPS=
+cp data/genomes/pBluescriptII_KS+_CabLCV-DNA-B_1.6mer.fasta $FASTAREF
+cat  CP001637.1.fasta  >> $FASTAREF
+srun bwa index      $FASTAREF
+srun samtools faidx $FASTAREF
 
-libcode=${libcodearray[libindex-1]}
+################################
 
 cd $OUTDIR
 pwd
 
 srun bwa mem -t 9 \
      $FASTAREF \
-     ${CUTADAPTDIR}/${libcode}_R1_trimmed.fastq.gz \
-     ${CUTADAPTDIR}/${libcode}_R2_trimmed.fastq.gz |
-    samtools sort -o ${libcode}.bam
-srun samtools index   ${libcode}.bam
+     ${CUTADAPTDIR}/${library}_R1_trimmed.fastq.gz \
+     ${CUTADAPTDIR}/${library}_R2_trimmed.fastq.gz |
+    samtools sort -o ${library}.bam
+srun samtools index   ${library}.bam
 
 ## drop secondary alignments:
-srun samtools view -h -F 2048 ${libcode}.bam \
-                   -b -o ${libcode}_unique.bam
-srun samtools index   ${libcode}_unique.bam
+srun samtools view -h -F 2048 ${library}.bam \
+                   -b -o ${library}_unique.bam
+srun samtools index   ${library}_unique.bam
 
-srun samtools idxstats ${libcode}_unique.bam \
-    > ${libcode}_unique_idxstats.tsv
+srun samtools idxstats ${library}_unique.bam \
+    > ${library}_unique_idxstats.tsv
 
-srun samtools flagstat ${libcode}.bam > ${libcode}_flagstat.txt
-srun samtools stats   ${libcode}.bam > ${libcode}_stats.txt
-#srun samtools depth  ${libcode}.bam > ${libcode}_depth.txt
+srun samtools flagstat ${library}.bam > ${library}_flagstat.txt
+srun samtools stats   ${library}.bam > ${library}_stats.txt
+
+########################################
+
+# $BEDFILE must be present
+srun samtools view -b -o ${library}_plasmid.bam \
+	 -L $BEDFILE \
+	 ${library}.bam
+samtools index ${library}_plasmid.bam
+
+########################################
+
+#PILEUPSTEPS=
+srun samtools mpileup -s -d 1000000000 \
+     -f $FASTAREF \
+     ${library}_plasmid.bam \
+     > ${library}.mpileup
+cut -f 1,2,4 ${library}.mpileup > ${library}_depth.txt
 
 ######################################################################
 
+#VARSCAN=
+srun java -jar $VARSCAN_JAR mpileup2snp \
+          ${library}.mpileup \
+     --min-var-freq 0.0001 \
+     --p-value 0.999999 \
+     --output-vcf   \
+     > ${library}_varscan-snp.vcf.tsv
+
+srun java -jar $VARSCAN_JAR mpileup2indel \
+     ${library}.mpileup \
+     --min-var-freq 0.0001 \
+     --p-value 0.999999 \
+     --output-vcf   \
+     > ${library}_varscan-indel.vcf.tsv
+
+######################################################################
+
+# If using multiple directories:
+OPTIONAL_FILE_MOVE="
+mv ${library}_unique_idxstats.tsv \
+   ${library}_flagstat.txt ${library}_stats.txt \
+   ${library}_depth.txt \
+   ${library}_varscan-snp.vcf.tsv \
+   ${library}_varscan-indel.vcf.tsv \
+   $OUTDIR_2
+"
+
+######################################################################
+
+# https://sites.google.com/view/cluster-user-guide
+sacct --units=G --format=MaxRSS,MaxDiskRead,MaxDiskWrite,Elapsed,NodeList -j $SLURM_JOBID
+
 module list
+samtools --version
+java -version
 date +"%Y-%m-%d %H:%M"
