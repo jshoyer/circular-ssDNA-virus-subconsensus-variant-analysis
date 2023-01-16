@@ -19,7 +19,7 @@ i.e. submitted with `sbatch`
 (010_, 020_, 030_, ...).
 The workflow is similar
 to the one described
-on the [[http://www.htslib.org/workflow/#mapping_to_variant][Samtools workflow page]],
+on the [[http://www.htslib.org/workflow/wgs-call.html][Samtools workflow page]],
 but combines steps with pipes
 to reduce repeated disk read/write steps.
 Several parts of each script
