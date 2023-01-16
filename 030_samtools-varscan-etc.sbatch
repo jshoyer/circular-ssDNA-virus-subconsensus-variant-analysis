@@ -12,10 +12,8 @@
 
 ######################################################################
 
-#SBATCH --array=3-5,9-11
+#SBATCH --array=1,2,6-8
 # 14 libraries total.
-# #14 is mutagenized plasmid (pNSB1101).
-# #12 is parental DNA-A plasmid.
 # #1, 2, and 6-8 were inoculated with WT virus.
 # #3-5 and 9-11  were inoculated with mutagenized virus.
 
@@ -52,7 +50,7 @@ SNPEFF_JAR=snpEff.jar
 BEDFILE=cablcv.bed
 
 CUTADAPTDIR="."
-FASTAREF=viruses-mutagenized-cablcv-plus-phix174-plus-Athaliana-tair10.fasta
+FASTAREF=viruses-cablcv-plus-phix174-plus-Athaliana-tair10.fasta
 
 cd $CUTADAPTDIR
 pwd
@@ -117,12 +115,12 @@ srun java -jar varscan.jar mpileup2indel \
 # Prerequisite: build database with 033_ job script
 
 java -jar $SNPEFF_JAR \
-     -c snpEff.config CabLCV_mutagenized ${library}_varscan-snp.vcf.tsv \
+     -c snpEff.config CabLCV ${library}_varscan-snp.vcf.tsv \
      -no-downstream  -no-intergenic  -no-upstream \
      -stats ${library} \
      > ${library}_snp.ann.vcf.tsv
 java -jar $SNPEFF_JAR \
-     -c snpEff.config CabLCV_mutagenized ${library}_varscan-indel.vcf.tsv \
+     -c snpEff.config CabLCV ${library}_varscan-indel.vcf.tsv \
      -no-downstream  -no-intergenic  -no-upstream \
      -stats ${library} \
      > ${library}_indel.ann.vcf.tsv

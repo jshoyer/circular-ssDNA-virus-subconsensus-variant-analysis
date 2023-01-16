@@ -8,10 +8,8 @@
 #          (define FASTAREF below).
 # Outputs: sorted and indexed BAM files, plus tables of read counts
 
-#SBATCH --array=3-5,9-11
+#SBATCH --array=1,2,6-8
 # 14 libraries total.
-# #14 is mutagenized plasmid (pNSB1101).
-# #12 is parental DNA-A plasmid.
 # #1, 2, and 6-8 were inoculated with WT virus.
 # #3-5 and 9-11  were inoculated with mutagenized virus.
 
@@ -25,8 +23,7 @@
 #SBATCH --error=job%j_%x_node%n.%N.index%a.err  # optional
 ######################################################################
 
-#FASTAREF=cablcv-plasmid-plus-phix174-plus-E-coli-DH10-CP001637.fasta  # B.
-FASTAREF=viruses-mutagenized-cablcv-plus-phix174-plus-Athaliana-tair10.fasta
+FASTAREF=viruses-cablcv-plus-phix174-plus-Athaliana-tair10.fasta
 
 CUTADAPTDIR="."
 OUTDIR="."

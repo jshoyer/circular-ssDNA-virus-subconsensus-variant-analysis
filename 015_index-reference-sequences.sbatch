@@ -20,10 +20,9 @@ SNPEFF_JAR=snpEff.jar
 #cd $OUTDIR
 #pwd
 
-#newfasta=viruses-cablcv-plus-phix174-plus-Athaliana-tair10.fasta
-newfasta=viruses-mutagenized-cablcv-plus-phix174-plus-Athaliana-tair10.fasta # D.
+newfasta=viruses-cablcv-plus-phix174-plus-Athaliana-tair10.fasta
 
-cat data/genomes/CabLCV_mutagenized.fa  > $newfasta
+cat data/genomes/CabLCV.fa  > $newfasta
 cat data/genomes/other.fasta  >> $newfasta
 
 TAIR10_chr_all=TAIR10_chr_all.fas.gz
@@ -37,10 +36,10 @@ srun samtools faidx $newfasta
 ##############################
 
 # Build database, per https://pcingola.github.io/SnpEff/se_buildingdb
-echo "CabLCV_mutagenized.genome : CabLCV_mutagenized" >> snpEff.config
+echo "CabLCV.genome : CabLCV" >> snpEff.config
 
 java -jar $SNPEFF_JAR \
-     build -gff3 -v CabLCV_mutagenized
+     build -gff3 -v CabLCV
 # Creates data/CabLCV/snpEffectPredictor.bin
 
 ######################################################################
