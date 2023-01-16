@@ -106,3 +106,4 @@ that have slightly different options commented out
 and other idiosyncrasies.
 Two snpEff job scripts merged into other ones
 for second release
+(Zenodo record [[https://zenodo.org/record/7542465][7542465]]).
