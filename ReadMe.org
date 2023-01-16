@@ -1,13 +1,11 @@
 
 This code supports
-a [[https://doi.org/10.1128/MRA.00802-20][resource anouncement paper]]
+a resource anouncement paper
 (Hoyer et al. 2020,
  https://doi.org/fhq2)
 describing deep sequencing
 of infectious clone plasmids
 originally described by Fondong et al. (2000, 2011).
-It is released for transparency,
-as an aid in understanding the work.
 I archived the code
 at Zenodo.org
 (record [[https://zenodo.org/record/4075362][4075362]])
@@ -92,7 +90,7 @@ i.e. submitted with `sbatch`
  010 and 015 before 02*).
 The workflow is similar
 to the one described
-on the [[http://www.htslib.org/workflow/#mapping_to_variant][Samtools workflow page]],
+on the [[http://www.htslib.org/workflow/wgs-call.html][Samtools workflow page]],
 but combines steps with pipes
 to reduce repeated disk read/write steps.
 
