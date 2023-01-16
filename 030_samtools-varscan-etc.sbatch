@@ -71,7 +71,7 @@ pwd
 
 samtools view -b -o ${library}_virus.bam \
 	 -L $BEDFILE \
-	 ${library}_bwa_sorted.bam
+	 ${library}.bam
 # Note that supplementary alignments are included.
 
 srun java -jar picard.jar MarkDuplicates \
