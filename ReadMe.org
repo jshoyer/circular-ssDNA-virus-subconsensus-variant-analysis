@@ -47,8 +47,19 @@ on other clusters
 or to run jobs that are similar
 but more resource-intensive.
 
+Indexing of virus and reference sequences
+with 011 and 012 job scripts
+uses the TAIR10.1 /A. thaliana/ genome assembly.
+: curl -O https://www.arabidopsis.org/download_files/Genes/TAIR10_genome_release/TAIR10_chromosome_files/TAIR10_chr_all.fas.gz
+
+Plasmid job scripts use an E. coli sequence from GenBank
+to tally up bacterium-mapping reads.
+If you have NCBI Entrez Direct e-utilities installed,
+you can download this reference like so:
+: esearch -db nucleotide -query "CP001637.1" | efetch -format fasta > CP001637.1.fasta
+
 Indexing of reference sequences
-needs to be done just once (015).
+needs to be done just once.
 The other steps run in parallel,
 using a Slurm job array,
 with one job per library.

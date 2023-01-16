@@ -25,10 +25,8 @@
 #SBATCH --error=job%j_%x_node%n.%N.index%a.err  # optional
 ######################################################################
 
-#FASTAREF=cablcv-plus-phix174-plus-Athaliana-tair10.fasta
 #FASTAREF=cablcv-plasmid-plus-phix174-plus-E-coli-DH10-CP001637.fasta  # B.
-#FASTAREF=cablcv-mutant-plasmid-plus-phix174-plus-E-coli-DH10.fasta   # C.
-FASTAREF=mutagenized-cablcv-plus-phix174-plus-Athaliana-tair10.fasta
+FASTAREF=viruses-mutagenized-cablcv-plus-phix174-plus-Athaliana-tair10.fasta
 
 CUTADAPTDIR="."
 OUTDIR="."

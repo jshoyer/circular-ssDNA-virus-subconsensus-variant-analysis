@@ -49,13 +49,8 @@ module load java     #/9.0.4
 
 BEDFILE=cablcv.bed
 
-#FASTAREF=cablcv-plus-phix174-plus-Athaliana-tair10.fasta
-FASTAREF=mutagenized-cablcv-plus-phix174-plus-Athaliana-tair10.fasta  # D.
 CUTADAPTDIR="."
-
-#FASTAREF=cablcv-plasmid-plus-phix174-plus-E-coli-DH10-CP001637.fasta  # B.
-#FASTAREF=cablcv-mutant-plasmid-plus-phix174-plus-E-coli-DH10.fasta    # C.
-# 01_index-reference-sequences-calcuv.sbatch
+FASTAREF=viruses-mutagenized-cablcv-plus-phix174-plus-Athaliana-tair10.fasta
 
 cd $CUTADAPTDIR
 pwd
