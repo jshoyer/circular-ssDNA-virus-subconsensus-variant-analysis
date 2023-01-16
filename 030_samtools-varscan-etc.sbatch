@@ -46,6 +46,8 @@ libindex=$SLURM_ARRAY_TASK_ID
 module load samtools # Use 1.8, not 1.3.1
 #           so that mpileup -d 0 option (below) will work.
 module load java     #/9.0.4
+# UPDATE_HERE:
+SNPEFF_JAR=snpEff.jar
 
 BEDFILE=cablcv.bed
 
@@ -111,6 +113,20 @@ srun java -jar varscan.jar mpileup2indel \
      --output-vcf   \
      > ${library}_varscan-indel.vcf.tsv
 
+###################################################
+# Prerequisite: build database with 033_ job script
+
+java -jar $SNPEFF_JAR \
+     -c snpEff.config CabLCV_mutagenized ${library}_varscan-snp.vcf.tsv \
+     -no-downstream  -no-intergenic  -no-upstream \
+     -stats ${library} \
+     > ${library}_snp.ann.vcf.tsv
+java -jar $SNPEFF_JAR \
+     -c snpEff.config CabLCV_mutagenized ${library}_varscan-indel.vcf.tsv \
+     -no-downstream  -no-intergenic  -no-upstream \
+     -stats ${library} \
+     > ${library}_indel.ann.vcf.tsv
+# https://pcingola.github.io/SnpEff/se_outputsummary
 
 ######################################################################
 

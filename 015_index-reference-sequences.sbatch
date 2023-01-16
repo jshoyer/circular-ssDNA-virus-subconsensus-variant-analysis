@@ -13,6 +13,7 @@
 ######################################################################
 
 module load bwa samtools
+SNPEFF_JAR=snpEff.jar
 
 #OUTDIR=UPDATE_HERE   # if desired
 #mkdir $OUTDIR
@@ -37,6 +38,15 @@ sha1sum $COLI_CHR
 
 srun bwa index      $newfasta
 srun samtools faidx $newfasta
+
+##############################
+
+# Build database, per https://pcingola.github.io/SnpEff/se_buildingdb
+echo "CabLCV_mutagenized.genome : CabLCV_mutagenized" >> snpEff.config
+
+java -jar $SNPEFF_JAR \
+     build -gff3 -v CabLCV_mutagenized
+# Creates data/CabLCV/snpEffectPredictor.bin
 
 ######################################################################
 module list  # just in case
