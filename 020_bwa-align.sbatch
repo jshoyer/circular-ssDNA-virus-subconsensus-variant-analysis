@@ -1,12 +1,12 @@
 #!/bin/bash
 
-#SBATCH --job-name=CabLCV_A_plasmid
+#SBATCH --job-name=CabLCV_mut_plasmid
 
 # Inputs: FastQ.gz files
 #         $FASTAREF is defined and created below.
 # Outputs: sorted and indexed BAM files, plus tables of read counts
 
-#SBATCH --array=12
+#SBATCH --array=14
 # 14 libraries total.
 # #14 is mutagenized plasmid (pNSB1101).
 #12 is parental DNA-A plasmid.
@@ -31,7 +31,7 @@ CUTADAPTDIR="."
 OUTDIR="."
 OUTDIR_2=$(pwd)
 
-FASTAREF=$OUTDIR_2/cablcv-DNA-A-1.2mer-plus-Ecoli-CP001637.fasta
+FASTAREF=$OUTDIR_2/cablcv-mutagenized-DNA-A-1.2mer-plus-Ecoli-CP001637.fasta
 BEDFILE=cablcv-plasmids.bed
 # UPDATE_HERE:
 module load bwa samtools java
@@ -66,7 +66,7 @@ cutadapt -j 0\
 
 cd $OUTDIR_2;  pwd
 #INDEX_STEPS=
-cp data/genomes/parental-CabLCV-DNA-A-pNSB1090.fasta $FASTAREF
+cp data/genomes/mutant-CabLCV-DNA-A-pNSB1101.fasta $FASTAREF
 cat  CP001637.1.fasta  >> $FASTAREF
 srun bwa index      $FASTAREF
 srun samtools faidx $FASTAREF
