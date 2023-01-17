@@ -11,8 +11,8 @@
 module load bwa samtools
 
 
-FASTAREF_1=pBluescript-II_KS_+_ACMV_DNA-A_1.4mer-plus-CP001637.fasta
-cat pBluescript-II_KS_+_ACMV_DNA-A_1.4mer.fasta > $FASTAREF_1
+FASTAREF_1=pBluescript-II_KS_-_ACMV_DNA-A_1.4mer-plus-CP001637.fasta
+cat pBluescript-II_KS_-_ACMV_DNA-A_1.4mer.fasta > $FASTAREF_1
 
 FASTAREF_2=pUC19_ACMV_DNA-B_1.5mer-plus-CP001637.fasta
 cat pUC19_ACMV_DNA-B_1.5mer.fasta > $FASTAREF_2
