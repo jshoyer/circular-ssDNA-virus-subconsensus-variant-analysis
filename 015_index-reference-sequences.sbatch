@@ -3,21 +3,13 @@
 #SBATCH --job-name=indexBwa_Plasmid
 
 #SBATCH --cpus-per-task=1
-#SBATCH --mem=25000                  # Real memory (RAM) required (MB)
-#SBATCH --time=01:00:00              # Total run time limit (HH:MM:SS)
+#SBATCH --mem=25000MB
+#SBATCH --time=01:00:00  # HH:MM:SS
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 
-######################################################################
-date +"%Y-%m-%d %H:%M"
-
-module purge
-# Dependencies:
 module load bwa samtools
-module list
-hostname
 
-######################################################################
 
 FASTAREF_1=pBluescript-II_KS_+_ACMV_DNA-A_1.4mer-plus-CP001637.fasta
 cat pBluescript-II_KS_+_ACMV_DNA-A_1.4mer.fasta > $FASTAREF_1
