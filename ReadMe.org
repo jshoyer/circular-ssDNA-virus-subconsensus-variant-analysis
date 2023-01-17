@@ -17,6 +17,15 @@ but that is not the main goal here.
 For the data in the Sequence Read Archive,
 see https://trace.ncbi.nlm.nih.gov/Traces/study/?acc=SRP274352
 
+The vector backbone for one plasmid
+(ACMV 1.4mer)
+was corrected slightly
+in GenBank (MT856193.2)
+and for third version of Zenodo record:
+f1 origin was inverted,
+hence backbone was KS(-),
+not KS(+).
+
 Relevant sentences from the paper:
     "Reads were trimmed with CutAdapt 1.16
      and aligned to the sequences listed in Table 1
