@@ -59,7 +59,7 @@ pwd
 
 samtools view -b -o ${library}_virus.bam \
 	 -L $BEDFILE \
-	 ${library}_bwa_sorted.bam
+	 ${library}.bam
 
 srun java -jar picard.jar MarkDuplicates \
     I=${library}_virus.bam \

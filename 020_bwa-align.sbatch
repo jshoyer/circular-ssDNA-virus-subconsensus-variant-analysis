@@ -53,19 +53,20 @@ srun bwa mem -t 9 \
      $FASTAREF \
      ${CUTADAPTDIR}/${library}_R1_trimmed.fastq.gz \
      ${CUTADAPTDIR}/${library}_R2_trimmed.fastq.gz |
-    samtools sort -o ${library}_bwa_sorted.bam
-srun samtools index   ${library}_bwa_sorted.bam
+    samtools sort -o ${library}.bam
+srun samtools index   ${library}.bam
 
 ## drop secondary alignments:
-srun samtools view -h -F 2048 ${library}_bwa_sorted.bam \
-                   -b -o ${library}_bwa_unique.bam
-srun samtools index   ${library}_bwa_unique.bam
+srun samtools view -h -F 2048 ${library}.bam \
+                   -b -o ${library}_unique.bam
+srun samtools index   ${library}_unique.bam
 
-srun samtools idxstats ${library}_bwa_unique.bam \
+srun samtools idxstats ${library}_unique.bam \
     > ${library}_idxstats.tsv
 
-srun samtools flagstat ${library}_bwa.bam > ${library}_flagstat.txt
-srun samtools stats   ${library}_bwa.bam > ${library}_stats.txt
+srun samtools flagstat ${library}.bam > ${library}_flagstat.txt
+srun samtools stats   ${library}.bam > ${library}_stats.txt
+
 
 ######################################################################
 module list
