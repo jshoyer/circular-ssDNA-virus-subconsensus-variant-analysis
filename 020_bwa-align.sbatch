@@ -23,8 +23,8 @@
 ######################################################################
 
 FASTAREF=UPDATE_HERE
-CUTADAPTDIR=UPDATE_HERE
-OUTDIR=UPDATE_HERE
+CUTADAPTDIR="." # UPDATE_HERE, if desired
+OUTDIR="." # UPDATE_HERE
 
 ######################################################################
 date +"%Y-%m-%d %H:%M"
