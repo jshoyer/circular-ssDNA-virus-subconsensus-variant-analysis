@@ -67,7 +67,12 @@ srun samtools idxstats ${library}_unique.bam \
 srun samtools flagstat ${library}.bam > ${library}_flagstat.txt
 srun samtools stats   ${library}.bam > ${library}_stats.txt
 
+#srun samtools depth ${library}.bam > ${library}_depth.txt
+# Rather than running `samtools depth` directly
+# I typically pull identical output from an mpileup file
+# in next job script.
 
 ######################################################################
+
 module list
 date +"%Y-%m-%d %H:%M"
