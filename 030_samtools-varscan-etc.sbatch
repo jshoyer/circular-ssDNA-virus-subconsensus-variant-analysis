@@ -17,11 +17,6 @@
 #SBATCH --mem=30000MB
 #SBATCH --time=2:00:00
 
-#SBATCH --nodes=1
-#SBATCH --ntasks=1
-#SBATCH --output=job%j_%x_node%n.%N.index%a.out
-#SBATCH --error=job%j_%x_node%n.%N.index%a.err  # optional
-
 ######################################################################
 
 module purge

@@ -8,14 +8,8 @@
 
 #SBATCH --array=UPDATE_HERE
 
-#SBATCH --nodes=1
-#SBATCH --ntasks=1                  # Total # of tasks across all nodes
-#SBATCH --cpus-per-task=1           # Cores per task (>1 if multithread tasks)
 #SBATCH --mem=500MB
 #SBATCH --time=2:30:00
-
-#SBATCH --output=job%j_%x_node%n.%N.index%a.out
-#SBATCH --error=job%j_%x_node%n.%N.index%a.err  # optional
 
 ######################################################################
 

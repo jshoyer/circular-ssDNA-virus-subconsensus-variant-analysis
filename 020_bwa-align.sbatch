@@ -8,18 +8,12 @@
 #          (define FASTAREF below).
 # Outputs: sorted and indexed BAM files, plus tables of read counts
 
-#SBATCH --partition=main
-
 #SBATCH --array=UPDATE_HERE
 
 #SBATCH --cpus-per-task=10
 #SBATCH --mem=50000MB
 #SBATCH --time=2:00:00
-#SBATCH --nodes=1
-#SBATCH --ntasks=1
 
-#SBATCH --output=job%j_%x_node%n.%N.index%a.out
-#SBATCH --error=job%j_%x_node%n.%N.index%a.err  # optional
 ######################################################################
 
 FASTAREF=UPDATE_HERE
