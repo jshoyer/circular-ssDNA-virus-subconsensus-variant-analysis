@@ -1,15 +1,18 @@
 #!/bin/bash
 
-#SBATCH --job-name=cutadapt_UPDATE_HERE
+#SBATCH --job-name=cutadaptMiSeq2020
 
 # Inputs:  a directory of FastQ.gz files -- raw reads
 # Outputs: FastQ.gz files -- trimmed adapter-parsed reads
 #          plus FastQC reports (HTML).
 
-#SBATCH --array=UPDATE_HERE
+#SBATCH --array=1-8
+# 8 Kibandameno samples (2 DNA conditions x 2 plants x 2 tech-reps).
+# 6 ACMV virion libraries: NEBNext, not Nextera,
+# so be sure to adjust variable in cutadapt command below.
 
 #SBATCH --mem=500MB
-#SBATCH --time=2:30:00
+#SBATCH --time=0:30:00
 
 ######################################################################
 

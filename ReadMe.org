@@ -5,6 +5,10 @@ by Aimone et al. 2022
 https://doi.org/G8S4.
 It is released for transparency,
 as an aid in understanding the work.
+This code is for the cassava virus analysis;
+the tomato and whitefly virus analysis
+will be archived at Zenodo.org
+via a separate GitHub repository.
 If someone can reuse the code
 (after adjusting paths)
 that is great,
@@ -33,6 +37,12 @@ but more resource-intensive.
 
 Indexing of reference sequences
 needs to be done just once (015).
+The version 7 cassava reference genome
+was used for the paper,
+but using a more recent one
+(such as version 8)
+would be preferable for extending the results.
+
 The other steps run in parallel,
 using a Slurm job array,
 with one job per library.

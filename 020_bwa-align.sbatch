@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=bwa_UPDATE_HERE
+#SBATCH --job-name=bwaCassava020
 
 # Inputs:  FastQ.gz files from 010_cutadapt.sbatch
 #          (define CUTADAPTDIR below),
@@ -8,7 +8,8 @@
 #          (define FASTAREF below).
 # Outputs: sorted and indexed BAM files, plus tables of read counts
 
-#SBATCH --array=UPDATE_HERE
+#SBATCH --array=1-8
+# 1-8 are Kibandameno samples (2 DNA conditions x 2 plants x 2 tech-reps)
 
 #SBATCH --cpus-per-task=10
 #SBATCH --mem=50000MB
@@ -16,16 +17,13 @@
 
 ######################################################################
 
-FASTAREF=UPDATE_HERE
+FASTAREF=acmv-v3-eacmcv-segs-phiX174-calcuv-Mesculenta_v7.0.fasta
 CUTADAPTDIR="." # UPDATE_HERE, if desired
 OUTDIR="." # UPDATE_HERE
 
 ######################################################################
-date +"%Y-%m-%d %H:%M"
-module purge
+# UPDATE_HERE if not using modules
 module load bwa samtools
-module list
-hostname
 
 echo This is task $SLURM_ARRAY_TASK_ID
 
@@ -61,10 +59,10 @@ srun samtools idxstats ${library}_unique.bam \
 srun samtools flagstat ${library}.bam > ${library}_flagstat.txt
 srun samtools stats   ${library}.bam > ${library}_stats.txt
 
-#srun samtools depth ${library}.bam > ${library}_depth.txt
+srun samtools depth ${library}.bam > ${library}_depth.txt
 # Rather than running `samtools depth` directly
 # I typically pull identical output from an mpileup file
-# in next job script.
+# with a different job script.
 
 ######################################################################
 
