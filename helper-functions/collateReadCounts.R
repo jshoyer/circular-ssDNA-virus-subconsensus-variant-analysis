@@ -15,40 +15,57 @@ library(tidyr)
 #idxSuffix <- "_defaults_with-host_idxstats.tsv"
 
 collateReadCounts <-
-    function(vectorOfFileNames, ##<< e.g. dir(.., full.names = TRUE)
-             libraryIDs,        ##<< e.g. file name prefix
+    function(filePaths, ##<< e.g. dir(.., full.names = TRUE)
+             filePrefixes,        ##<< e.g. file name prefix
              numRefSequencesOfInterest = 9, ##<< Lump all the others together
-             totalNumRefSequences = 908,    ##<< Could easily determine automatically
+             #totalNumRefSequences = 908,    ##<< now determine automatically
+             numHostSequences,    ##<< Number of host "chromosomes" to sum over
+             ##  n = 13 (0 to 12) for SL4.0
              sumThemUp = TRUE,    ##<< Sum ACMV + EACMCV, DNA-A + DNA-B, etc.
              ...)
 {
-    numLibraries = length(vectorOfFileNames)
+    numFiles = length(filePaths)
 
-    idxstatList <- vector("list", numLibraries)
-    virusMappingList <- vector("list", numLibraries)
-    unmappedHostAssigned <- vector("list", numLibraries)
-    unmappedVirusAssigned <- vector("list", numLibraries)
+    idxstatList <- vector("list", numFiles)
+    virusMappingList <- vector("list", numFiles)
+    unmappedHostAssigned <- vector("list", numFiles)
+    unmappedVectorAssigned <- vector("list", numFiles)
+    unmappedVirusAssigned <- vector("list", numFiles)
 
-    hostMappingReadCount <- numeric(numLibraries)
+    hostMappingReadCount <- numeric(numFiles)
+    vectorMappingReadCount <- numeric(numFiles)
     ## ToDo: classify slightly better
-    #unmappedVirusAssigned <- numeric(numLibraries)
-    #unmappedHostAssigned <- numeric(numLibraries)
+    #unmappedVirusAssigned <- numeric(numFiles)
+    #unmappedHostAssigned <- numeric(numFiles)
 
-    for (i in 1:numLibraries) {
-        idxstatList[[i]] <- read.delim(vectorOfFileNames[i],
+    for (i in 1:numFiles) {
+        ## Should error-check here: throw an error if the file is empty.
+        idxstatList[[i]] <- read.delim(filePaths[i],
                                        header = FALSE,
                                        col.names = c("refSequenceName",
                                                      "refSequenceLength",
                                                      "numMappedReads",
                                                      "numUnmappedReads"))
+        if (i == 1) {
+            totalNumRefSequences <- dim(idxstatList[[i]])[1] - 1
+        } else {
+            if (totalNumRefSequences != dim(idxstatList[[i]])[1] - 1) {
+                print("Error: Different tables have different formats!")
+                }
+        }
+        ##
         ##  Last column includes reads that been assigned (based on their pair)
         virusMappingList[[i]] <- idxstatList[[i]][c(1:numRefSequencesOfInterest,
                                                     totalNumRefSequences + 1),  ## Unmapped unassigned
                                                                                 ## * row
                                                   ]
-        hostRows <- idxstatList[[i]][(numRefSequencesOfInterest + 1):totalNumRefSequences, ]
-        hostMappingReadCount[i] <- sum(hostRows[ , 3])
-        unmappedHostAssigned[i] <- sum(hostRows[ , 4])
+            lastHostRow <- numRefSequencesOfInterest + numHostSequences
+            hostRows <- idxstatList[[i]][(numRefSequencesOfInterest + 1):lastHostRow, ]
+            vectorRows <- idxstatList[[i]][(lastHostRow + 1):totalNumRefSequences, ]
+            hostMappingReadCount[i] <- sum(hostRows[ , 3])
+            unmappedHostAssigned[i] <- sum(hostRows[ , 4])
+            vectorMappingReadCount[i] <- sum(vectorRows[ , 3])
+            unmappedVectorAssigned[i] <- sum(vectorRows[ , 4])
 
         unmappedVirusAssigned[i] <- sum(
             idxstatList[[i]][1:numRefSequencesOfInterest,
@@ -57,7 +74,7 @@ collateReadCounts <-
 
     virusMappingDf <- do.call(rbind, virusMappingList)
 
-    virusMappingDf$filePrefix <- rep(libraryIDs, each = numRefSequencesOfInterest + 1)
+    virusMappingDf$filePrefix <- rep(filePrefixes, each = numRefSequencesOfInterest + 1)
 
     virusMappingSelected <- select(virusMappingDf,
                                    filePrefix,
@@ -67,23 +84,35 @@ collateReadCounts <-
 
     virusMappingWide <- select(virusMappingWide, -"*")
     virusMappingWide$host <- hostMappingReadCount
+    virusMappingWide$vector <- vectorMappingReadCount
 
     virusMappingWide <- select(virusMappingWide,
                                "libraryFastQfile" = filePrefix,
+                               ToMoV_A = "ToMoV_DNA-A",
+                               ToMoV_B = "ToMoV_DNA-B",
+                               host = host,
+                               vector = vector,
+                               TYLCV = "TYLCV",
+                               pUC119 = "pUC119_BamHI-to-HindIII-inclusive",
                                "ACMV_A" =  "ACMV_DNA-A_v2",
                                "ACMV_B" =  "ACMV_DNA-B_v3",
                                "EACMCV_A" = "EACMCV_DNA-A",
                                "EACMCV_B" = "EACMCV_DNA-B",
-                               host = host,
-                               "SEGS1" = AY836366.1,
-                               "SEGS2" = AY836367.1,
-                               phiX174 = "phi-X174_NC_001422.1",
-                               CaLCuV_A = "CaLCuV_DNA-A",
-                               CaLCuV_B = "CaLCuV_DNA-B",
+                               #host = host,
+                               "SEGS1" = "SEGS-1_AY836366",
+                               "SEGS2" = "SEGS-2_AY836367",
+                               #"SEGS1" = AY836366.1,
+                               #"SEGS2" = AY836367.1,
+                               phiX174 = "phiX174_J02482",
+                               #phiX174 = "phi-X174_NC_001422.1",
+                               CaLCuV_A = "CabLCV_DNA-A",
+                               CaLCuV_B = "CabLCV_DNA-B",
                                )
 
     #' Ugh!
-    virusMappingWide$unmapped <- virusMappingDf$numUnmappedReads[10 * (1:numLibraries)]
+    virusMappingWide$unmapped <-
+        virusMappingDf$numUnmappedReads[
+                       (numRefSequencesOfInterest + 1) * (1:numFiles)]
 
     if (sumThemUp) {
     virusMappingWide <-
@@ -114,8 +143,8 @@ attr(collateReadCounts, 'ex') <- function() {  #  Examples:
         dir(inputFilePath20190523,
             pattern = "_with-host_unique_idxstats.tsv",
             full.names = TRUE)
-    vectorOfFileNames <- inputTables20190523
-    libraryIDs <- 1:21
-    #vectorOfFileNames <- inputTables20190705
-    #libraryIDs <- filePrefixes20190705
+    filePaths <- inputTables20190523
+    filePrefixes <- 1:21
+    #filePaths <- inputTables20190705
+    #filePrefixes <- filePrefixes20190705
 }
