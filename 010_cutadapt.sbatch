@@ -1,15 +1,19 @@
 #!/bin/bash
 
-#SBATCH --job-name=cutadapt_UPDATE_HERE
+#SBATCH --job-name=cutadaptMiSeq2020
 
 # Inputs:  a directory of FastQ.gz files -- raw reads
 # Outputs: FastQ.gz files -- trimmed adapter-parsed reads
 #          plus FastQC reports (HTML).
 
-#SBATCH --array=UPDATE_HERE
+# Dependencies:
+#     Cutadapt 1.16 or similar (see below)
+
+#SBATCH --array=1-24
+# 24 samples from tomato and whiteflies
 
 #SBATCH --mem=500MB
-#SBATCH --time=2:30:00
+#SBATCH --time=0:30:00
 
 ######################################################################
 
@@ -27,16 +31,11 @@ cd $CUTADAPTDIR
 pwd
 
 # See Illumina adapter sequences document.
-adapter_1_nebnext=AGATCGGAAGAGCACACGTCTGAACTCCAGTCA
-adapter_2_nebnext=AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT
-adapter_1_nextera=CTGTCTCTTATACACATCTCCGAGCCCACGAGAC
-adapter_2_nextera=CTGTCTCTTATACACATCTGACGCTGCCGACGA
-
+# Reverse complement of the Nextera Transposase Adapters.
 srun cutadapt\
      --nextseq-trim=20\
-     # UPDATE_HERE if necessary:
-     -a $adapter_1_nextera \
-     -A $adapter_2_nextera \
+     -a CTGTCTCTTATACACATCTCCGAGCCCACGAGAC \
+     -A CTGTCTCTTATACACATCTGACGCTGCCGACGA \
      -q 30\
      -o ${OUTPREFIX[$libindex-1]}_R1_trimmed.fastq.gz\
      -p ${OUTPREFIX[$libindex-1]}_R2_trimmed.fastq.gz\

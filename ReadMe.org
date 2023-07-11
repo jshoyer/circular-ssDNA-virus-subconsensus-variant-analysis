@@ -5,6 +5,10 @@ by Aimone et al. 2022
 https://doi.org/G8S4.
 It is released for transparency,
 as an aid in understanding the work.
+This code is for the ToMoV (tomato, whitefly) analysis;
+the cassava virus analysis
+has been archived at Zenodo.org
+via a separate GitHub repository.
 If someone can reuse the code
 (after adjusting paths)
 that is great,
@@ -36,9 +40,10 @@ needs to be done just once (015).
 The other steps run in parallel,
 using a Slurm job array,
 with one job per library.
-We trim reads with Cutadapt (010),
-align them with BWA MEM (020),
-and do the processing needed
+We trim reads with Cutadapt (010)
+and align them with BWA MEM (020).
+(Job scripts in other repositories
+can do the processing needed
 for calling variants with VarScan (030).
 These steps are split into multiple job scripts
 mainly because the BWA MEM step

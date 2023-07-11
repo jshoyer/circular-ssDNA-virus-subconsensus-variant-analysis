@@ -1,31 +1,34 @@
 #!/bin/bash
 
-#SBATCH --job-name=indexBwa_UPDATE_HERE
+#SBATCH --job-name=indexRefs
 
-#SBATCH --mem=2000MB
-#SBATCH --time=00:40:00
+#SBATCH --mem=20000MB
+#SBATCH --time=00:50:00
 
-######################################################################
-
-date +"%Y-%m-%d %H:%M"
-
+# UPDATE_HERE if not using modules
 module purge
-module load bwa
-module load samtools
+module load bwa samtools
 module list
 pwd
-hostname
 
-#OUTDIR=UPDATE_HERE   # if desired
-#mkdir $OUTDIR
-#cd $OUTDIR
-#pwd
+#newfasta=UPDATE_HERE.fasta
+newfasta=tomato4-MEAM1-tomov3-tylcv-acmv-eacmcv-segs-phiX174-calcuv.fasta
+cat ref.fasta > $newfasta
 
-FASTAREF=UPDATE_HERE.fasta
+## From solgenomics.net
+tomatoRefV4=S_lycopersicum_chromosomes.4.00.fa.gz
+sha1sum $tomatoRefV4
+zcat $tomatoRefV4 >> $newfasta
 
-srun bwa index      $FASTAREF
-srun samtools faidx $FASTAREF
+meam1Ref=GCA_001854935.1_ASM185493v1_genomic.fna.gz
+sha1sum $meam1Ref
+zcat $meam1Ref >> $newfasta
+
+
+srun bwa index      $newfasta
+srun samtools faidx $newfasta
 
 ######################################################################
+
 module list
 date +"%Y-%m-%d %H:%M"

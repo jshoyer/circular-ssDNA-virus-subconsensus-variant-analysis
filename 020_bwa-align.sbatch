@@ -1,14 +1,11 @@
 #!/bin/bash
 
-#SBATCH --job-name=bwa_UPDATE_HERE
+#SBATCH --job-name=bwaTomato020
 
-# Inputs:  FastQ.gz files from 010_cutadapt.sbatch
-#          (define CUTADAPTDIR below),
-#          and an indexed reference sequence from 015_index-reference-sequences.sbatch
-#          (define FASTAREF below).
-# Outputs: sorted and indexed BAM files, plus tables of read counts
-
-#SBATCH --array=UPDATE_HERE
+#SBATCH --array=1-24
+# 24 samples from tomato and whiteflies.
+# Virion preps from whiteflies (1 to 6)
+# have neglible virus-mapping reads.
 
 #SBATCH --cpus-per-task=10
 #SBATCH --mem=50000MB
@@ -16,16 +13,15 @@
 
 ######################################################################
 
-FASTAREF=UPDATE_HERE
-CUTADAPTDIR="." # UPDATE_HERE, if desired
-OUTDIR="." # UPDATE_HERE
+FASTAREF=tomato4-MEAM1-tomov3-tylcv-acmv-eacmcv-segs-phiX174-calcuv.fasta
+# UPDATE_HERE if you want input or output in another directory:
+CUTADAPTDIR="."
+OUTDIR="."
 
 ######################################################################
-date +"%Y-%m-%d %H:%M"
 module purge
 module load bwa samtools
 module list
-hostname
 
 echo This is task $SLURM_ARRAY_TASK_ID
 
@@ -39,12 +35,11 @@ libcodearray=( $(ls *_R1_trimmed.fastq.gz | sed 's/_R1_trimmed.fastq.gz//') )
 
 library=${libcodearray[libindex-1]}
 
-#mkdir $OUTDIR
 cd $OUTDIR
 pwd
 
 srun bwa mem -t 9 \
-     $FASTAREF \
+     $OUTDIR/$FASTAREF \
      ${CUTADAPTDIR}/${library}_R1_trimmed.fastq.gz \
      ${CUTADAPTDIR}/${library}_R2_trimmed.fastq.gz |
     samtools sort -o ${library}.bam
@@ -56,15 +51,15 @@ srun samtools view -h -F 2048 ${library}.bam \
 srun samtools index   ${library}_unique.bam
 
 srun samtools idxstats ${library}_unique.bam \
-    > ${library}_idxstats.tsv
+    > ${library}_unique_idxstats.tsv
 
 srun samtools flagstat ${library}.bam > ${library}_flagstat.txt
 srun samtools stats   ${library}.bam > ${library}_stats.txt
 
-#srun samtools depth ${library}.bam > ${library}_depth.txt
+srun samtools depth ${library}.bam > ${library}_depth.txt
 # Rather than running `samtools depth` directly
 # I typically pull identical output from an mpileup file
-# in next job script.
+# with a different job script.
 
 ######################################################################
 
