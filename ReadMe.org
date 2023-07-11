@@ -46,9 +46,10 @@ would be preferable for extending the results.
 The other steps run in parallel,
 using a Slurm job array,
 with one job per library.
-We trim reads with Cutadapt (010),
-align them with BWA MEM (020),
-and do the processing needed
+We trim reads with Cutadapt (010)
+and align them with BWA MEM (020).
+(Job scripts in other repositories
+can do the processing needed
 for calling variants with VarScan (030).
 These steps are split into multiple job scripts
 mainly because the BWA MEM step
