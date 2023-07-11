@@ -13,6 +13,9 @@ readSamtoolsDepth <- function(filePaths,
                        sep = "\t", header = FALSE,
                        col.names = c("chrom", "pos", "depth"),
                        ...)
+        if (length(levels(depthList[[i]]$chrom)) < 4) {
+            print(paste(filePrefixes[i], "-- No reads for at least one segment"))
+        }
         depthList[[i]]$readGroup <-
             rep(filePrefixes[i],
                 dim(depthList[[i]])[1])
