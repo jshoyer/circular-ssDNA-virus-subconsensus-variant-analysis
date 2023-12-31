@@ -21,11 +21,9 @@ CUTADAPTDIR="." # UPDATE_HERE, if desired
 OUTDIR="." # UPDATE_HERE
 
 ######################################################################
-date +"%Y-%m-%d %H:%M"
-module purge
+
 module load bwa samtools
 module list
-hostname
 
 echo This is task $SLURM_ARRAY_TASK_ID
 
