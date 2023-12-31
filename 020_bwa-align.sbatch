@@ -16,7 +16,7 @@
 
 ######################################################################
 
-FASTAREF=UPDATE_HERE
+FASTAREF=acmv-v3-eacmcv-segs-phiX174-cablcv-calcuv-tomov-tylcv-pUC119_AM560v7.fasta
 CUTADAPTDIR="." # UPDATE_HERE, if desired
 OUTDIR="." # UPDATE_HERE
 

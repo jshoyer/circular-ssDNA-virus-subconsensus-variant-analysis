@@ -48,6 +48,12 @@ but more resource-intensive.
 
 Indexing of reference sequences
 needs to be done just once (015).
+The version 7 cassava reference genome
+was used for the paper,
+but using a more recent one
+(such as version 8)
+would be preferable for extending the results.
+
 The other steps run in parallel,
 using a Slurm job array,
 with one job per library.

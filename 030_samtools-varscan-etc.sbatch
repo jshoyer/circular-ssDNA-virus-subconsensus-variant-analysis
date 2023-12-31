@@ -35,7 +35,8 @@ BEDFILE=UPDATE_HERE
 # Used for getting subsets of reads -- below.
 
 CUTADAPTDIR="." # UPDATE_HERE
-FASTAREF=UPDATE_HERE
+
+FASTAREF=acmv-v3-eacmcv-segs-phiX174-cablcv-calcuv-tomov-tylcv-pUC119_AM560v7.fasta
 
 cd $CUTADAPTDIR
 pwd
