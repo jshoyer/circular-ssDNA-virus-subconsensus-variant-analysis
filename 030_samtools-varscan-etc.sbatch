@@ -4,7 +4,7 @@
 
 # Inputs:  sorted and indexed BAM files, from 020_bwa-align.sbatch
 #          (Names specified based on contents of CUTADAPTDIR -- define below),
-#          a BED file with "chromosome" lengths.  (Define bedfile below
+#          a BED file with "chromosome" lengths.  (Define bedfile below)
 #          and an indexed reference sequence from 015_index-reference-sequences.sbatch
 #          (define FASTAREF below).
 # Outputs: VCF files (and intermediate files)
@@ -19,11 +19,10 @@
 
 ######################################################################
 
-module purge
 # Dependencies:
 module load samtools #/1.3.1
 module load java     #/9.0.4
-#     VarScan v2.4.3 (below)
+#     VarScan v2.4.4 (below)
 
 ################################################################################
 OUTDIR="." # UPDATE_HERE, if desired
@@ -49,7 +48,7 @@ echo $library
 cd $OUTDIR
 pwd
 
-# http://www.htslib.org/workflow/#mapping_to_variant
+# http://www.htslib.org/workflow/wgs-call.html
 ####################################################
 
 samtools view -b -o ${library}_virus.bam \
@@ -75,7 +74,7 @@ srun samtools mpileup -s -d 1000000000 \
      > ${library}_virus.mpileup
 
 # Equivalent to what `samtools depth` would yield:
-cut -f 1,2,4 ${library}.mpileup > ${library}_depth.txt
+cut -f 1,2,4 ${library}_virus.mpileup > ${library}_depth.txt
 
 ######################################################################
 

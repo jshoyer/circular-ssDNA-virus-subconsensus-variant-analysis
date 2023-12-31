@@ -7,14 +7,10 @@
 
 ######################################################################
 
-date +"%Y-%m-%d %H:%M"
-
-module purge
 module load bwa
 module load samtools
 module list
 pwd
-hostname
 
 #OUTDIR=UPDATE_HERE   # if desired
 #mkdir $OUTDIR
