@@ -1,14 +1,29 @@
 
 This code supports
 a scientific paper
-by Aimone et al. 2022
-https://doi.org/G8S4.
+by Aimone, Lavington et al. 2021
+https://doi.org/GPRM.
 It is released for transparency,
 as an aid in understanding the work.
 If someone can reuse the code
 (after adjusting paths)
 that is great,
 but that is not the main goal here.
+
+The job scripts and R code
+were used to generate two CSV files
+which were used by a separate set of python code
+(https://github.com/elavington/PIRE)
+to make Figures 1 to 3 in the paper.
+One of the CSV files
+was directly checked in to that repo,
+the other was not
+due to its large size (125 MB).
+Much of the other analysis
+for the paper
+used a similar Galaxy workflow
+to process Illumina data.
+
 
 The Slurm job scripts
 are numbered in the order
