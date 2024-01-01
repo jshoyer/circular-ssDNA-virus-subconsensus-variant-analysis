@@ -15,27 +15,28 @@ library(tidyr)
 #idxSuffix <- "_defaults_with-host_idxstats.tsv"
 
 collateReadCounts <-
-    function(vectorOfFileNames, ##<< e.g. dir(.., full.names = TRUE)
-             libraryIDs,        ##<< e.g. file name prefix
+    function(filePaths, ##<< e.g. dir(.., full.names = TRUE)
+             filePrefixes,        ##<< e.g. file name prefix
              numRefSequencesOfInterest = 9, ##<< Lump all the others together
              totalNumRefSequences = 908,    ##<< Could easily determine automatically
              sumThemUp = TRUE,    ##<< Sum ACMV + EACMCV, DNA-A + DNA-B, etc.
              ...)
 {
-    numLibraries = length(vectorOfFileNames)
+    numFiles = length(filePaths)
 
-    idxstatList <- vector("list", numLibraries)
-    virusMappingList <- vector("list", numLibraries)
-    unmappedHostAssigned <- vector("list", numLibraries)
-    unmappedVirusAssigned <- vector("list", numLibraries)
+    idxstatList <- vector("list", numFiles)
+    virusMappingList <- vector("list", numFiles)
+    unmappedHostAssigned <- vector("list", numFiles)
+    unmappedVirusAssigned <- vector("list", numFiles)
 
-    hostMappingReadCount <- numeric(numLibraries)
+    hostMappingReadCount <- numeric(numFiles)
     ## ToDo: classify slightly better
-    #unmappedVirusAssigned <- numeric(numLibraries)
-    #unmappedHostAssigned <- numeric(numLibraries)
+    #unmappedVirusAssigned <- numeric(numFiles)
+    #unmappedHostAssigned <- numeric(numFiles)
 
-    for (i in 1:numLibraries) {
-        idxstatList[[i]] <- read.delim(vectorOfFileNames[i],
+    for (i in 1:numFiles) {
+        ## Should error-check here: throw an error if the file is empty.
+        idxstatList[[i]] <- read.delim(filePaths[i],
                                        header = FALSE,
                                        col.names = c("refSequenceName",
                                                      "refSequenceLength",
@@ -46,10 +47,13 @@ collateReadCounts <-
                                                     totalNumRefSequences + 1),  ## Unmapped unassigned
                                                                                 ## * row
                                                   ]
+        ## Problem here (I think) when host is omitted:
+        ## very last row gets called as host.
         hostRows <- idxstatList[[i]][(numRefSequencesOfInterest + 1):totalNumRefSequences, ]
         hostMappingReadCount[i] <- sum(hostRows[ , 3])
         unmappedHostAssigned[i] <- sum(hostRows[ , 4])
 
+        ## (consider renaming this, if I ever use it)
         unmappedVirusAssigned[i] <- sum(
             idxstatList[[i]][1:numRefSequencesOfInterest,
                              4])
@@ -57,7 +61,7 @@ collateReadCounts <-
 
     virusMappingDf <- do.call(rbind, virusMappingList)
 
-    virusMappingDf$filePrefix <- rep(libraryIDs, each = numRefSequencesOfInterest + 1)
+    virusMappingDf$filePrefix <- rep(filePrefixes, each = numRefSequencesOfInterest + 1)
 
     virusMappingSelected <- select(virusMappingDf,
                                    filePrefix,
@@ -75,15 +79,22 @@ collateReadCounts <-
                                "EACMCV_A" = "EACMCV_DNA-A",
                                "EACMCV_B" = "EACMCV_DNA-B",
                                host = host,
-                               "SEGS1" = AY836366.1,
-                               "SEGS2" = AY836367.1,
-                               phiX174 = "phi-X174_NC_001422.1",
-                               CaLCuV_A = "CaLCuV_DNA-A",
-                               CaLCuV_B = "CaLCuV_DNA-B",
+                               "SEGS1" = "SEGS-1_AY836366",
+                               "SEGS2" = "SEGS-2_AY836367",
+                               phiX174 = "phiX174_J02482",
+                               CabLCV_A = "CabLCV_DNA-A",
+                               CabLCV_B = "CabLCV_DNA-B",
+                               E_coli = "CP001637.1",
+                               TYLCV = TYLCV_AF024715,
+                               ToMoV_A = "ToMoV_DNA-A_L14460",
+                               ToMoV_B = "ToMoV_DNA-B_L14461",
+                               pUC119 = "pUC119_BamHI-to-HindIII-inclusive",
                                )
 
     #' Ugh!
-    virusMappingWide$unmapped <- virusMappingDf$numUnmappedReads[10 * (1:numLibraries)]
+    virusMappingWide$unmapped <-
+        virusMappingDf$numUnmappedReads[
+                       (numRefSequencesOfInterest + 1) * (1:numFiles)]
 
     if (sumThemUp) {
     virusMappingWide <-
@@ -91,9 +102,11 @@ collateReadCounts <-
                readsACMV = ACMV_A + ACMV_B,
                readsEACMCV = EACMCV_A + EACMCV_B,
                virusReads = readsACMV + readsEACMCV,
-               mappedReads = virusReads + SEGS1 + SEGS2 + host,
+               mappedReads = virusReads + SEGS1 + SEGS2 + host +
+                   phiX174 + E_coli + pUC119 +
+                   CabLCV_A + CabLCV_B + TYLCV + ToMoV_A + ToMoV_B,
                ## The following is NOT complete,
-               ## because
+               ## because unmappedVirusAssigned is missing.
                #totalReads = mappedReads + unmapped,
                readsACMV_A_rel = ACMV_A/mappedReads,
                readsEACMCV_A_rel = EACMCV_A/mappedReads,
@@ -114,8 +127,8 @@ attr(collateReadCounts, 'ex') <- function() {  #  Examples:
         dir(inputFilePath20190523,
             pattern = "_with-host_unique_idxstats.tsv",
             full.names = TRUE)
-    vectorOfFileNames <- inputTables20190523
-    libraryIDs <- 1:21
-    #vectorOfFileNames <- inputTables20190705
-    #libraryIDs <- filePrefixes20190705
+    filePaths <- inputTables20190523
+    filePrefixes <- 1:21
+    #filePaths <- inputTables20190705
+    #filePrefixes <- filePrefixes20190705
 }

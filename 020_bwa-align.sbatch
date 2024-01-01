@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=bwa_UPDATE_HERE
+#SBATCH --job-name=bwaTemp4_2020-04
 
 # Inputs:  FastQ.gz files from 010_cutadapt.sbatch
 #          (define CUTADAPTDIR below),
@@ -8,11 +8,11 @@
 #          (define FASTAREF below).
 # Outputs: sorted and indexed BAM files, plus tables of read counts
 
-#SBATCH --array=UPDATE_HERE
+#SBATCH --array=1-202
 
 #SBATCH --cpus-per-task=10
 #SBATCH --mem=50000MB
-#SBATCH --time=2:00:00
+#SBATCH --time=4:00:00
 
 ######################################################################
 
@@ -54,7 +54,7 @@ srun samtools view -h -F 2048 ${library}.bam \
 srun samtools index   ${library}_unique.bam
 
 srun samtools idxstats ${library}_unique.bam \
-    > ${library}_idxstats.tsv
+    > ${library}_unique_idxstats.tsv
 
 srun samtools flagstat ${library}.bam > ${library}_flagstat.txt
 srun samtools stats   ${library}.bam > ${library}_stats.txt

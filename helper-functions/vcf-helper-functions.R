@@ -99,6 +99,7 @@ loopThroughVCF <-
              numCheck, # expected number present?
              filterByP = TRUE,
              getRidOfClutter = TRUE,
+             acmveacmcv = TRUE,  #<< assumptions about reference sequences
              ...)
 {
     varscanTableFiles <-
@@ -141,6 +142,36 @@ loopThroughVCF <-
     if (filterByP) {
         varDf <- filter(varDf, PVAL < 0.05)
     }
+
+    if (acmveacmcv) {
+        levels(varDf$chrom) <- c("ACMV DNA-A",
+                                 "ACMV DNA-B",
+                                 "EACMCV DNA-A",
+                                 "EACMCV DNA-B")
+
+    calledAgainstACMV   <- which(
+        varDf$chrom %in% c("ACMV DNA-A", "ACMV DNA-B"))
+    calledAgainstEACMCV <- which(
+        varDf$chrom %in% c("EACMCV DNA-A", "EACMCV DNA-B"))
+
+    varDf$virusCalledAgainst <- "ACMV"
+    ## I do not understand why the following causes a mismatch of 8:
+    ##varDf$virusCalledAgainst[calledAgainstACMV] <- "ACMV"
+    varDf$virusCalledAgainst[calledAgainstEACMCV] <- "EACMCV"
+    varDf$virusCalledAgainst <- as.factor(varDf$virusCalledAgainst)
+
+    calledAgainstDnaA <- which(
+        varDf$chrom %in% c("ACMV DNA-A", "EACMCV DNA-A"))
+    calledAgainstDnaB <- which(
+        varDf$chrom %in% c("ACMV DNA-B", "EACMCV DNA-B"))
+
+    varDf$segmentCalledAgainst <- "A"
+    ## Another mysterious mismatch:
+    #varDf$segmentCalledAgainst[calledAgainstDnaA] <- "A"
+    varDf$segmentCalledAgainst[calledAgainstDnaB] <- "B"
+    varDf$segmentCalledAgainst <- as.factor(varDf$segmentCalledAgainst)
+    }
+
     return(varDf)
 }
 
