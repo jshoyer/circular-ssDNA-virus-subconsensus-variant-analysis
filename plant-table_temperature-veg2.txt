@@ -1,0 +1,156 @@
+Unique ID	Summary	Site	Researcher	Experiment name	Organism	Variety	Date Planted	Planting type	Source ID	Location	temperature	Infection type	Date of infection	virusTreatment	Passage #	Cuttings taken from ID	Replicate #	Replicate's Mother Plant ID	Phenotype	Images	Date Cuttings taken	Number of cuttings taken (blue bottom, yellow, middle, green top, no color mother) - divded evenly by nodes	Node number	Mother plant alive 	Progated color of  cutting kept  for transplanting	Date transplated 	Leaf number sampled	Infected 	Date Leaf Sampled	Hours after Dawn Sampled	Date DNA isolated
+ID-0000001		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	28	bombardment	2017-05-17	Mock	1	N/A		N/A	1		2017-06-14	3	17	yes	green 	2017-07-05	2	no	2017-06-14	5	2017-06-15
+ID-0000002		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	28	bombardment	2017-05-17	Mock	1	N/A		N/A	1		2017-06-14	3	13	no	yellow	2017-07-05	2	no	2017-06-14	5	2017-06-15
+ID-0000003		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	28	bombardment	2017-05-17	ACMV	1	N/A		N/A	3		2017-06-14	3	14	yes	blue	2017-07-05	2	no	2017-06-14	5	2017-06-15
+ID-0000004		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	28	bombardment	2017-05-17	ACMV	1	N/A		N/A	3		2017-06-14	3	13	no	dead	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000005		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	28	bombardment	2017-05-17	ACMV	1	N/A		N/A	3		2017-06-14	3	12	yes	yellow	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000006		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	28	bombardment	2017-05-17	ACMV	1	N/A		N/A	4		2017-06-14	3	14	yes	yellow	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000007		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	28	bombardment	2017-05-17	ACMV	1	N/A		N/A	3		2017-06-14	3	12	yes	yellow	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000008		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	28	bombardment	2017-05-17	ACMV	1	N/A		N/A	3		2017-06-14	3	15	yes	dead	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000009		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	28	bombardment	2017-05-17	EACMCV	1	N/A		N/A	3		2017-06-14	3	12	yes	blue	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000010		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	28	bombardment	2017-05-17	EACMCV	1	N/A		N/A	3		2017-06-14	3	14	yes	no trans	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000011		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	28	bombardment	2017-05-17	EACMCV	1	N/A		N/A	3		2017-06-14	3	12	yes	blue	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000012		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	28	bombardment	2017-05-17	EACMCV	1	N/A		N/A	4		2017-06-14	3	10	yes	dead	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000013		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	28	bombardment	2017-05-17	EACMCV	1	N/A		N/A	4		2017-06-14	3	14	yes	dead	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000014		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	28	bombardment	2017-05-17	EACMCV	1	N/A		N/A	3		2017-06-14	3	12	yes	green 	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000015		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	28	bombardment	2017-05-17	Mixed	1	N/A		N/A	5		2017-06-14	3	15	yes	yellow	2017-07-05	6	yes	2017-06-14	5	2017-06-15
+ID-0000016		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	28	bombardment	2017-05-17	Mixed	1	N/A		N/A	5		2017-06-14	3	14	yes	yellow	2017-07-05	6	yes	2017-06-14	5	2017-06-15
+ID-0000017		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	28	bombardment	2017-05-17	Mixed	1	N/A		N/A	5		2017-06-14	3	14	no	dead	2017-07-05	6	yes	2017-06-14	5	2017-06-15
+ID-0000018		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	28	bombardment	2017-05-17	Mixed	1	N/A		N/A	5		2017-06-14	3	14	yes	blue	2017-07-05	6	no	2017-06-14	5	2017-06-15
+ID-0000019		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	28	bombardment	2017-05-17	Mixed	1	N/A		N/A	5		2017-06-14	3	15	yes	blue	2017-07-05	6	yes	2017-06-14	5	2017-06-15
+ID-0000020		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	28	bombardment	2017-05-17	Mixed	1	N/A		N/A	5		2017-06-14	3	12	yes	no trans	2017-07-05	6	no	2017-06-14	5	2017-06-15
+ID-0000021		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	30	bombardment	2017-05-17	Mock	1	N/A		N/A	1		2017-06-14	3	15	no	dead	2017-07-05	2	no	2017-06-14	5	2017-06-15
+ID-0000022		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	30	bombardment	2017-05-17	Mock	1	N/A		N/A	1		2017-06-14	3	16	no	dead	2017-07-05	2	no	2017-06-14	5	2017-06-15
+ID-0000023		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	30	bombardment	2017-05-17	ACMV	1	N/A		N/A	2		2017-06-14	3	16	yes	green 	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000024		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	30	bombardment	2017-05-17	ACMV	1	N/A		N/A	3		2017-06-14	3	16	no	dead	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000025		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	30	bombardment	2017-05-17	ACMV	1	N/A		N/A	3		2017-06-14	3	15	yes	green 	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000026		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	30	bombardment	2017-05-17	ACMV	1	N/A		N/A	3		2017-06-14	3	15	yes	green 	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000027		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	30	bombardment	2017-05-17	ACMV	1	N/A		N/A	4		2017-06-14	3	15	yes	no trans	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000028		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	30	bombardment	2017-05-17	ACMV	1	N/A		N/A	2		2017-06-14	3	11	no	dead	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000029		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	30	bombardment	2017-05-17	EACMCV	1	N/A		N/A	4		2017-06-14	3	10	no	dead	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000030		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	30	bombardment	2017-05-17	EACMCV	1	N/A		N/A	4		2017-06-14	3		yes	green 	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000031		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	30	bombardment	2017-05-17	EACMCV	1	N/A		N/A	4		2017-06-14	3	14	yes	yellow	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000032		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	30	bombardment	2017-05-17	EACMCV	1	N/A		N/A	3		2017-06-14	3	14	yes	yellow	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000033		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	30	bombardment	2017-05-17	EACMCV	1	N/A		N/A	3		2017-06-14	3	11	yes	no trans	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000034		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	30	bombardment	2017-05-17	EACMCV	1	N/A		N/A	3		2017-06-14	3	14	yes	dead	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000035		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	30	bombardment	2017-05-17	Mixed	1	N/A		N/A	5		2017-06-14	3	12	yes	no trans	2017-07-05	6	no	2017-06-14	5	2017-06-15
+ID-0000036		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	30	bombardment	2017-05-17	Mixed	1	N/A		N/A	5		2017-06-14	3	12	yes	no trans	2017-07-05	6	no	2017-06-14	5	2017-06-15
+ID-0000037		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	30	bombardment	2017-05-17	Mixed	1	N/A		N/A	5		2017-06-14	3	12	yes	yellow	2017-07-05	6	yes	2017-06-14	5	2017-06-15
+ID-0000038		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	30	bombardment	2017-05-17	Mixed	1	N/A		N/A	5		2017-06-14	3	9	yes	yellow	2017-07-05	6	no	2017-06-14	5	2017-06-15
+ID-0000039		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	30	bombardment	2017-05-17	Mixed	1	N/A		N/A	5		2017-06-14	3	14	yes	yellow	2017-07-05	6	yes	2017-06-14	5	2017-06-15
+ID-0000040		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	30	bombardment	2017-05-17	Mixed	1	N/A		N/A	5		2017-06-14	3	14	no	dead	2017-07-05	6	yes	2017-06-14	5	2017-06-15
+ID-0000041		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	32	bombardment	2017-05-17	Mock	1	N/A		N/A	1		2017-06-14	3	15	no	dead	2017-07-05	2	no	2017-06-14	5	2017-06-15
+ID-0000042		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	32	bombardment	2017-05-17	Mock	1	N/A		N/A	1		2017-06-14	3	12	no	dead	2017-07-05	2	no	2017-06-14	5	2017-06-15
+ID-0000043		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	32	bombardment	2017-05-17	ACMV	1	N/A		N/A	3		2017-06-14	3	17	yes	blue 	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000044		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	32	bombardment	2017-05-17	ACMV	1	N/A		N/A	3		2017-06-14	3	17	no	dead	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000045		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	32	bombardment	2017-05-17	ACMV	1	N/A		N/A	3		2017-06-14	3	16	no	dead	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000046		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	32	bombardment	2017-05-17	ACMV	1	N/A		N/A	4		2017-06-14	3	15	no	dead	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000047		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	32	bombardment	2017-05-17	ACMV	1	N/A		N/A	4		2017-06-14	3	16	no	dead	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000048		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	32	bombardment	2017-05-17	ACMV	1	N/A		N/A	4		2017-06-14	3	17	yes	blue	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000049		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	32	bombardment	2017-05-17	EACMCV	1	N/A		N/A	3		2017-06-14	3	20	yes	blue	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000050		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	32	bombardment	2017-05-17	EACMCV	1	N/A		N/A	3		2017-06-14	3	13	yes	no trans	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000051		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	32	bombardment	2017-05-17	EACMCV	1	N/A		N/A	3		2017-06-14	3	18	yes	blue	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000052		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	32	bombardment	2017-05-17	EACMCV	1	N/A		N/A	4		2017-06-14	3	20	yes	yellow	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000053		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	32	bombardment	2017-05-17	EACMCV	1	N/A		N/A	3		2017-06-14	3	17	yes	no trans	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000054		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	32	bombardment	2017-05-17	EACMCV	1	N/A		N/A	4		2017-06-14	3	17	yes	dead	2017-07-05	2	yes	2017-06-14	5	2017-06-15
+ID-0000055		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	32	bombardment	2017-05-17	Mixed	1	N/A		N/A	4		2017-06-14	3	8	yes	blue	2017-07-05	6	yes	2017-06-14	5	2017-06-15
+ID-0000056		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	32	bombardment	2017-05-17	Mixed	1	N/A		N/A	5		2017-06-14	3	14	no	dead	2017-07-05	6	yes	2017-06-14	5	2017-06-15
+ID-0000057		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	32	bombardment	2017-05-17	Mixed	1	N/A		N/A	5		2017-06-14	3	18	non	dead	2017-07-05	6	yes	2017-06-14	5	2017-06-15
+ID-0000058		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	32	bombardment	2017-05-17	Mixed	1	N/A		N/A	4		2017-06-14	3	12	no	green 	2017-07-05	6	yes	2017-06-14	5	2017-06-15
+ID-0000059		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	32	bombardment	2017-05-17	Mixed	1	N/A		N/A	4		2017-06-14	3	12	no	dead	2017-07-05	6	yes	2017-06-14	5	2017-06-15
+ID-0000060		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		tissue culture		chambers	32	bombardment	2017-05-17	Mixed	1	N/A		N/A	5		2017-06-14	3	12	yes	dead	2017-07-05	6	no	2017-06-14	5	2017-06-15
+ID-0000061		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	28	vegetative	2017-04-21	Mock				N/A	1		Disposed 6/16/2017	2					2		2017-06-16	5	2017-06-16
+ID-0000062		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	28	vegetative	2017-04-21	Mock				N/A	1		Disposed 6/16/2017	2					2		2017-06-16	5	2017-06-16
+ID-0000063		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	28	vegetative	2017-04-21	Mock				N/A	1		Disposed 6/16/2017	2					2		2017-06-16	5	2017-06-16
+ID-0000064		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	28	vegetative	2017-04-21	ACMV				N/A	3		Disposed 6/16/2017	2					2		2017-06-16	5	2017-06-16
+ID-0000065		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	28	vegetative	2017-04-21	ACMV				N/A	3		Disposed 6/16/2017	2					2		2017-06-16	5	2017-06-16
+ID-0000066		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	28	vegetative	2017-04-21	ACMV				N/A	3		Disposed 6/16/2017	2					2		2017-06-16	5	2017-06-16
+ID-0000067		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	28	vegetative	2017-04-21	EACMCV				N/A	3		Disposed 6/16/2017	2					2		2017-06-16	5	2017-06-16
+ID-0000068		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	28	vegetative	2017-04-21	Mixed				N/A	4		Disposed 6/16/2017	2					6		2017-06-16	5	2017-06-16
+ID-0000069		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	28	vegetative	2017-04-21	Mixed				N/A	4		Disposed 6/16/2017	2					6		2017-06-16	5	2017-06-16
+ID-0000070		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	28	vegetative	2017-04-21	Mixed				N/A	4		Disposed 6/16/2017	2					6		2017-06-16	5	2017-06-16
+ID-0000071		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	30	vegetative	2017-04-21	Mock				N/A	1		Disposed 6/16/2017	2					2		2017-06-16	5	2017-06-23
+ID-0000072		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	30	vegetative	2017-04-21	Mock				N/A	1		Disposed 6/16/2017	2					2		2017-06-16	5	2017-06-23
+ID-0000073		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	30	vegetative	2017-04-21	Mock				N/A	1		Disposed 6/16/2017	2					2		2017-06-16	5	2017-06-16
+ID-0000074		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	30	vegetative	2017-04-21	ACMV				N/A	3		Disposed 6/16/2017	2					2		2017-06-16	5	2017-06-23
+ID-0000075		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	30	vegetative	2017-04-21	ACMV				N/A	3		Disposed 6/16/2017	2					2		2017-06-16	5	2017-06-16
+ID-0000076		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	30	vegetative	2017-04-21	ACMV				N/A	1		Disposed 6/16/2017	2					2		2017-06-16	5	2017-06-23
+ID-0000077		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	30	vegetative	2017-04-21	EACMCV				N/A	3		Disposed 6/16/2017	2					2		2017-06-16	5	2017-06-23
+ID-0000078		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	30	vegetative	2017-04-21	EACMCV				N/A	3		Disposed 6/16/2017	2					2		2017-06-16	5	2017-06-16
+ID-0000079		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	30	vegetative	2017-04-21	EACMCV				N/A	3		Disposed 6/16/2017	2					2		2017-06-16	5	2017-06-23
+ID-0000080		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	30	vegetative	2017-04-21	Mixed				N/A	5		Disposed 6/16/2017	2					6		2017-06-16	5	2017-06-23
+ID-0000081		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	30	vegetative	2017-04-21	Mixed				N/A	5		Disposed 6/16/2017	2					6		2017-06-16	5	2017-06-23
+ID-0000082		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	32	vegetative	2017-04-21	Mock				N/A	1		Disposed 6/16/2017	2					2		2017-06-16	5	2017-06-23
+ID-0000083		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	32	vegetative	2017-04-21	Mock				N/A	1		Disposed 6/16/2017	2					2		2017-06-16	5	2017-06-16
+ID-0000084		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	32	vegetative	2017-04-21	ACMV				N/A	1		Disposed 6/16/2017	2					2		2017-06-16	5	2017-06-23
+ID-0000085		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	32	vegetative	2017-04-21	ACMV				N/A	2		Disposed 6/16/2017	2					2		2017-06-16	5	2017-06-23
+ID-0000086		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	32	vegetative	2017-04-21	ACMV				N/A	3		Disposed 6/16/2017	2					2		2017-06-16	5	2017-06-23
+ID-0000087		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	32	vegetative	2017-04-21	EACMCV				N/A	4		Disposed 6/16/2017	2					2		2017-06-16	5	2017-06-16
+ID-0000088		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	32	vegetative	2017-04-21	EACMCV				N/A	3		Disposed 6/16/2017	2					2		2017-06-16	5	2017-06-16
+ID-0000089		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	32	vegetative	2017-04-21	EACMCV				N/A	3		Disposed 6/16/2017	2					2		2017-06-16	5	2017-06-23
+ID-0000090		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	32	vegetative	2017-04-21	Mixed				N/A	5		Disposed 6/16/2017	2					6		2017-06-16	5	2017-06-16
+ID-0000091		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	32	vegetative	2017-04-21	Mixed				N/A	4		Disposed 6/16/2017	2					6		2017-06-16	5	2017-06-16
+ID-0000092		NCSU	Dave Deppong	temperature	cassava	Kibandameno	2017-04-21	soil	N/A	chambers	32	vegetative	2017-04-21	Mixed				N/A	3		Disposed 6/16/2017	2	11	yes			2		2017-06-16	5	2017-06-16
+ID-0000093		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	28	vegetative	2017-05-17	Mock	2	ID-0000001	1	ID-0000001	1			2	15	yes			2		2017-08-09	5	2017-08-09
+ID-0000094		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	28	vegetative	2017-05-17	ACMV	2	ID-0000003	1	ID-0000003	1			2	8	yes			2		2017-08-09	5	2017-08-09
+ID-0000095		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	28	vegetative	2017-05-17	ACMV	2	ID-0000005	2	ID-0000005	2			2	14	yes			2		2017-08-09	5	2017-08-09
+ID-0000096		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	28	vegetative	2017-05-17	ACMV	2	ID-0000006	1	ID-0000006	1			2	8	yes			2		2017-08-09	5	2017-08-09
+ID-0000097		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	28	vegetative	2017-05-17	ACMV	2	ID-0000007	1	ID-0000007	1			2	17	yes			2		2017-08-09	5	2017-08-09
+ID-0000098		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	28	vegetative	2017-05-17	EACMCV	2	ID-0000009	2	ID-0000009	2			2	6	yes			2		2017-08-09	5	2017-08-09
+ID-0000099		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	28	vegetative	2017-05-17	EACMCV	2	ID-0000010	3	ID-0000010	3			2	16	yes			2		2017-08-09	5	2017-08-09
+ID-0000100		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	28	vegetative	2017-05-17	EACMCV	2	ID-0000014	2	ID-0000014	2			2	10	yes			2		2017-08-09	5	2017-08-09
+ID-0000101		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	28	vegetative	2017-05-17	Mixed	2	ID-0000015	2	ID-0000015	2			2	9	yes			2		2017-08-09	5	2017-08-09
+ID-0000102		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	28	vegetative	2017-05-17	Mixed	2	ID-0000016	4	ID-0000016	4			2	9	yes			2		2017-08-09	5	2017-08-09
+ID-0000103		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	28	vegetative	2017-05-17	Mixed	2	ID-0000018	4	ID-0000018	4			2	16	yes			6		2017-08-09	5	2017-08-09
+ID-0000104		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	30	vegetative	2017-05-17	ACMV	2	ID-0000023	2	ID-0000023	2			2	14	yes			6		2017-08-09	5	2017-08-09
+ID-0000105		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	30	vegetative	2017-05-17	ACMV	2	ID-0000025	1	ID-0000025	1			2	14	yes			6		2017-08-09	5	2017-08-09
+ID-0000106		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	30	vegetative	2017-05-17	ACMV	2	ID-0000026	1	ID-0000026	1			2	11	yes			2		2017-08-09	5	2017-08-09
+ID-0000107		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	30	vegetative	2017-05-17	ACMV	2	ID-0000027	1	ID-0000027	1			2	12	yes			2		2017-08-09	5	2017-08-09
+ID-0000108		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	30	vegetative	2017-05-17	EACMCV	2	ID-0000030	3	ID-0000030	3			2	10	yes			2		2017-08-09	5	2017-08-09
+ID-0000109		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	30	vegetative	2017-05-17	EACMCV	2	ID-0000031	2	ID-0000031	2			2	10	yes			2		2017-08-09	5	2017-08-09
+ID-0000110		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	30	vegetative	2017-05-17	EACMCV	2	ID-0000032	2	ID-0000032	2			2	11	yes			2		2017-08-09	5	2017-08-09
+ID-0000111		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	30	vegetative	2017-05-17	EACMCV	2	ID-0000032	3	ID-0000032	3			2	10	yes			2		2017-08-09	5	2017-08-09
+ID-0000112		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	30	vegetative	2017-05-17	Mixed	2	ID-0000037	4	ID-0000037	4			2	10	yes			6		2017-08-09	5	2017-08-09
+ID-0000113		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	30	vegetative	2017-05-17	Mixed	2	ID-0000038	4	ID-0000038	4			2	13	yes			6		2017-08-09	5	2017-08-09
+ID-0000114		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	30	vegetative	2017-05-17	Mixed	2	ID-0000039	4	ID-0000039	4			2	15	yes			6		2017-08-09	5	2017-08-09
+ID-0000115		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	32	vegetative	2017-05-17	ACMV	2	ID-0000043	3	ID-0000043	3			2	15	yes			2		2017-08-09	5	2017-08-09
+ID-0000116		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	32	vegetative	2017-05-17	ACMV	2	ID-0000043	2	ID-0000043	2			2	13	yes			2		2017-08-09	5	2017-08-09
+ID-0000117		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	32	vegetative	2017-05-17	ACMV	2	ID-0000048	2	ID-0000048	2			2	11	yes			2		2017-08-09	5	2017-08-09
+ID-0000118		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	32	vegetative	2017-05-17	EACMCV	2	ID-0000049	4	ID-0000049	4			2	15	yes			2		2017-08-09	5	2017-08-09
+ID-0000119		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	32	vegetative	2017-05-17	EACMCV	2	ID-0000052	1	ID-0000052	2			2	8	yes			2		2017-08-09	5	2017-08-09
+ID-0000120		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	32	vegetative	2017-05-17	EACMCV	2	ID-0000053	2	ID-0000053	1			2	13	yes			2		2017-08-09	5	2017-08-09
+ID-0000121		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	32	vegetative	2017-05-17	Mixed	2	ID-0000055	2	ID-0000055	2			2	15	yes			6		2017-08-09	5	2017-08-09
+ID-0000122		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	32	vegetative	2017-05-17	Mixed	2	ID-0000058	2	ID-0000058	2			2	12	yes			6		2017-08-09	5	2017-08-09
+ID-0000123		NCSU	Catherine Doyle	temperature	cassava	Kibandameno	2017-08-09	soil	N 	chambers	32	vegetative	2017-05-17	Mixed	2	ID-0000058	2	ID-0000058	2			2	5	yes			6		2017-08-09	5	2017-08-09
+ID-0000124		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	28	vegetative	2017-05-17	Mock	3	ID-0000093		ID-0000001	1								2		2017-09-18	5	2017-09-18
+ID-0000125		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	28	vegetative	2017-05-17	ACMV	3	ID-0000094		ID-0000003	2								2		2017-09-18	5	2017-09-18
+ID-0000126		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	28	vegetative	2017-05-17	ACMV	3	ID-0000095		ID-0000005	2								2		2017-09-18	5	2017-09-18
+ID-0000127		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	28	vegetative	2017-05-17	ACMV	3	ID-0000096		ID-0000006	1								2		2017-09-18	5	2017-09-18
+ID-0000128		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	28	vegetative	2017-05-17	ACMV	3	ID-0000097		ID-0000007	1								2		2017-09-18	5	2017-09-18
+ID-0000129		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	28	vegetative	2017-05-17	EACMCV	3	ID-0000098		ID-0000009	1								2		2017-09-18	5	2017-09-18
+ID-0000130		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	28	vegetative	2017-05-17	EACMCV	3	ID-0000099		ID-0000010	2								2		2017-09-18	5	2017-09-18
+ID-0000131		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	28	vegetative	2017-05-17	EACMCV	3	ID-0000100		ID-0000014	3								2		2017-09-18	5	2017-09-18
+ID-0000132		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	28	vegetative	2017-05-17	Mixed	3	ID-0000101		ID-0000015	3								2		2017-09-18	5	2017-09-18
+ID-0000133		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	28	vegetative	2017-05-17	Mixed	3	ID-0000102		ID-0000016	3								2		2017-09-18	5	2017-09-18
+ID-0000134		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	28	vegetative	2017-05-17	Mixed	3	ID-0000103		ID-0000018	3								2		2017-09-18	5	2017-09-18
+ID-0000135		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	30	vegetative	2017-05-17	ACMV	3	ID-0000104		ID-0000023	1								6		2017-09-18	5	2017-09-18
+ID-0000136		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	30	vegetative	2017-05-17	ACMV	3	ID-0000105		ID-0000025	1								6		2017-09-18	5	2017-09-18
+ID-0000137		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	30	vegetative	2017-05-17	ACMV	3	ID-0000106		ID-0000026	1								6		2017-09-18	5	2017-09-18
+ID-0000138		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	30	vegetative	2017-05-17	ACMV	3	ID-0000107		ID-0000027	1								2		2017-09-18	5	2017-09-18
+ID-0000139		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	30	vegetative	2017-05-17	EACMCV	3	ID-0000108		ID-0000030	1								2		2017-09-18	5	2017-09-18
+ID-0000140		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	30	vegetative	2017-05-17	EACMCV	3	ID-0000109		ID-0000031	1								2		2017-09-18	5	2017-09-18
+ID-0000141		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	30	vegetative	2017-05-17	EACMCV	3	ID-0000110		ID-0000032	1								2		2017-09-18	5	2017-09-18
+ID-0000142		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	30	vegetative	2017-05-17	EACMCV	3	ID-0000111		ID-0000032	1								2		2017-09-18	5	2017-09-18
+ID-0000143		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	30	vegetative	2017-05-17	Mixed	3	ID-0000112		ID-0000037	4								2		2017-09-18	5	2017-09-18
+ID-0000144		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	30	vegetative	2017-05-17	Mixed	3	ID-0000113		ID-0000038	4								6		2017-09-18	5	2017-09-18
+ID-0000145		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	30	vegetative	2017-05-17	Mixed	3	ID-0000114		ID-0000039	4								6		2017-09-18	5	2017-09-18
+ID-0000146		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	32	vegetative	2017-05-17	ACMV	3	ID-0000115		ID-0000043	2								6		2017-09-18	5	2017-09-18
+ID-0000147		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	32	vegetative	2017-05-17	ACMV	3	ID-0000116		ID-0000043	3								2		2017-09-18	5	2017-09-18
+ID-0000148		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	32	vegetative	2017-05-17	ACMV	3	ID-0000117		ID-0000048	3								2		2017-09-18	5	2017-09-18
+ID-0000149		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	32	vegetative	2017-05-17	EACMCV	3	ID-0000118		ID-0000049	3								2		2017-09-18	5	2017-09-18
+ID-0000150		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	32	vegetative	2017-05-17	EACMCV	3	ID-0000119		ID-0000052	4								2		2017-09-18	5	2017-09-18
+ID-0000151		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	32	vegetative	2017-05-17	EACMCV	3	ID-0000120		ID-0000053	2								2		2017-09-18	5	2017-09-18
+ID-0000152		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	32	vegetative	2017-05-17	Mixed	3	ID-0000121		ID-0000055	4								2		2017-09-18	5	2017-09-18
+ID-0000153		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	32	vegetative	2017-05-17	Mixed	3	ID-0000122		ID-0000058	4								6		2017-09-18	5	2017-09-18
+ID-0000154		NCSU	Catherine Doyle	temperature	cassava	Kibandameno		soil	N 	chambers	32	vegetative	2017-05-17	Mixed	3	ID-0000123		ID-0000058	1								6		2017-09-18	5	2017-09-18
+																											6		2017-09-18	5	2017-09-18
