@@ -1,15 +1,15 @@
 #!/bin/bash
 
-#SBATCH --job-name=cutadapt_UPDATE_HERE
+#SBATCH --job-name=cutadapt_Temperature4-and-VegProp
 
 # Inputs:  a directory of FastQ.gz files -- raw reads
 # Outputs: FastQ.gz files -- trimmed adapter-parsed reads
 #          plus FastQC reports (HTML).
 
-#SBATCH --array=UPDATE_HERE
+#SBATCH --array=1-202
 
 #SBATCH --mem=500MB
-#SBATCH --time=2:30:00
+#SBATCH --time=3:00:00
 
 ######################################################################
 
@@ -27,14 +27,11 @@ cd $CUTADAPTDIR
 pwd
 
 # See Illumina adapter sequences document.
-adapter_1_nebnext=AGATCGGAAGAGCACACGTCTGAACTCCAGTCA
-adapter_2_nebnext=AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT
 adapter_1_nextera=CTGTCTCTTATACACATCTCCGAGCCCACGAGAC
 adapter_2_nextera=CTGTCTCTTATACACATCTGACGCTGCCGACGA
 
 srun cutadapt\
      --nextseq-trim=20\
-     # UPDATE_HERE if necessary:
      -a $adapter_1_nextera \
      -A $adapter_2_nextera \
      -q 30\
