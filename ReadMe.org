@@ -24,6 +24,11 @@ for the paper
 used a similar Galaxy workflow
 to process Illumina data.
 
+Since the first release archived at Zenodo.org
+(record 10449701)
+some minor changes were made
+to streamline things.
+
 
 The Slurm job scripts
 are numbered in the order
