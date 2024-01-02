@@ -35,23 +35,3 @@ metadata_20200406_vegprop_nonredundant <-
 metadata_20200406_vegprop_nonredundant <-
     select(metadata_20200406_vegprop_nonredundant,
            -replicateCode, -libraryFastQfilePrefix, -sampleNum)
-
-
-#' One-time construction of plant table:
-if (FALSE) {
-    tableByPlant_vegprop <-
-        select(metadata_20200406_vegprop_nonredundant,
-               -dnaSampleCode)
-    tableByPlant_vegprop <- mutate(tableByPlant_vegprop,
-                                   lineage = plantID,
-                                   temperature = 28)
-    write.table(tableByPlant_vegprop,
-                "plant-table_vegetative-propagation.txt",
-                sep = "\t", quote = FALSE,
-                row.names = FALSE)
-}
-#' Checked an initial version of this table
-#' (artifact 08801240b2be5f048)
-#' and then edited it.
-#' Cf. a more comprehensive version
-#' made with examine-metadata.R
